@@ -2228,7 +2228,7 @@ body.dark .analysis-item .label {
 }
 
 /* ============================================
-   DARS JADVALI BO'LIMI
+   DARS JADVALI - YANGILANGAN (DINAMIK USTUNLAR)
    ============================================ */
 
 .schedule {
@@ -2272,7 +2272,7 @@ body.dark .analysis-item .label {
   margin: 20px auto 0;
 }
 
-/* Sinf tanlash qismi */
+/* Sinf tanlash */
 .class-selector {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
@@ -2365,6 +2365,7 @@ body.dark .analysis-item .label {
   margin-bottom: 40px;
   min-height: 400px;
   animation: fadeIn 0.5s ease;
+  overflow-x: auto;
 }
 
 @keyframes fadeIn {
@@ -2378,12 +2379,13 @@ body.dark .analysis-item .label {
   }
 }
 
-/* Dars jadvali */
+/* Dars jadvali - DINAMIK USTUNLAR UCHUN */
 .schedule-table {
   width: 100%;
   border-collapse: separate;
   border-spacing: 0 10px;
   background: transparent;
+  min-width: 500px;
 }
 
 .schedule-table thead tr {
@@ -2398,6 +2400,7 @@ body.dark .analysis-item .label {
   text-align: center;
   position: relative;
   border: none;
+  white-space: nowrap;
 }
 
 .schedule-table th:first-child {
@@ -2430,6 +2433,7 @@ body.dark .analysis-item .label {
   font-size: 15px;
   border: none;
   background: white;
+  white-space: nowrap;
 }
 
 .schedule-table td:first-child {
@@ -2447,11 +2451,18 @@ body.dark .analysis-item .label {
 }
 
 /* Fanlar uchun rangli stillar */
-.schedule-table td:nth-child(2) { color: #2563eb; font-weight: 500; }
-.schedule-table td:nth-child(3) { color: #7c3aed; font-weight: 500; }
-.schedule-table td:nth-child(4) { color: #db2777; font-weight: 500; }
-.schedule-table td:nth-child(5) { color: #059669; font-weight: 500; }
-.schedule-table td:nth-child(6) { color: #d97706; font-weight: 500; }
+.schedule-table td[data-lesson="matematika"] { color: #2563eb; font-weight: 500; }
+.schedule-table td[data-lesson="ona-tili"] { color: #7c3aed; font-weight: 500; }
+.schedule-table td[data-lesson="adabiyot"] { color: #7c3aed; font-weight: 500; }
+.schedule-table td[data-lesson="ingliz-tili"] { color: #db2777; font-weight: 500; }
+.schedule-table td[data-lesson="fizika"] { color: #10b981; font-weight: 500; }
+.schedule-table td[data-lesson="kimyo"] { color: #f59e0b; font-weight: 500; }
+.schedule-table td[data-lesson="biologiya"] { color: #84cc16; font-weight: 500; }
+.schedule-table td[data-lesson="tarix"] { color: #ef4444; font-weight: 500; }
+.schedule-table td[data-lesson="geografiya"] { color: #06b6d4; font-weight: 500; }
+.schedule-table td[data-lesson="informatika"] { color: #8b5cf6; font-weight: 500; }
+.schedule-table td[data-lesson="texnologiya"] { color: #a855f7; font-weight: 500; }
+.schedule-table td[data-lesson="jismoniy-tarbiya"] { color: #14b8a6; font-weight: 500; }
 
 /* Qo'shimcha ma'lumot */
 .schedule-footer {
@@ -2562,6 +2573,7 @@ body.dark .info-item {
   
   .schedule-table {
     font-size: 14px;
+    min-width: 400px;
   }
   
   .schedule-table th,
@@ -2602,6 +2614,7 @@ body.dark .info-item {
   
   .schedule-table {
     font-size: 12px;
+    min-width: 350px;
   }
   
   .schedule-table th,
