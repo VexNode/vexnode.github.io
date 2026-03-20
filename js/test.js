@@ -1,368 +1,314 @@
 // ============================================
-// TEST TIZIMI - ZAMONAVIY VERSIYA
+// TEST TIZIMI - SINFLARGA MOS VERSIYA
 // ============================================
 
-// Test ma'lumotlari
+// Har bir sinf va fan uchun alohida testlar
 const testData = {
-  'matematika': {
-    title: '🔢 Matematika',
-    icon: '🔢',
-    time: 30,
-    questions: [
-      {
-        question: '5 + 3 = ?',
-        answers: ['6', '7', '8', '9'],
-        correct: 2
-      },
-      {
-        question: '10 × 4 = ?',
-        answers: ['30', '40', '45', '50'],
-        correct: 1
-      },
-      {
-        question: '25 ÷ 5 = ?',
-        answers: ['3', '4', '5', '6'],
-        correct: 2
-      },
-      {
-        question: '7² = ?',
-        answers: ['14', '21', '49', '64'],
-        correct: 2
-      },
-      {
-        question: '√81 = ?',
-        answers: ['7', '8', '9', '10'],
-        correct: 2
-      }
-    ]
+  // ========== 5-SINF TESTLARI ==========
+  '5': {
+    'matematika': {
+      title: '🔢 Matematika (5-sinf)',
+      icon: '🔢',
+      time: 20,
+      questions: [
+        { question: '5 + 3 = ?', answers: ['6', '7', '8', '9'], correct: 2 },
+        { question: '10 - 4 = ?', answers: ['4', '5', '6', '7'], correct: 2 },
+        { question: '3 × 4 = ?', answers: ['10', '11', '12', '13'], correct: 2 },
+        { question: '15 ÷ 3 = ?', answers: ['3', '4', '5', '6'], correct: 2 },
+        { question: 'Qaysi son eng katta?', answers: ['12', '15', '9', '7'], correct: 1 },
+        { question: '20 + 15 = ?', answers: ['30', '35', '40', '45'], correct: 1 },
+        { question: '100 - 45 = ?', answers: ['55', '65', '45', '35'], correct: 0 },
+        { question: '8 × 6 = ?', answers: ['42', '48', '54', '56'], correct: 1 },
+        { question: '36 ÷ 6 = ?', answers: ['4', '5', '6', '7'], correct: 2 },
+        { question: 'Qaysi son 50 dan kichik?', answers: ['55', '60', '45', '52'], correct: 2 }
+      ]
+    },
+    'ona-tili': {
+      title: '📖 Ona tili (5-sinf)',
+      icon: '📖',
+      time: 20,
+      questions: [
+        { question: 'Alifboda nechta harf bor?', answers: ['28', '29', '30', '31'], correct: 1 },
+        { question: '"Kitob" so\'zida nechta harf?', answers: ['4', '5', '6', '7'], correct: 1 },
+        { question: 'Unli harflar nechta?', answers: ['5', '6', '7', '8'], correct: 1 },
+        { question: '"Olma" so\'zining birinchi harfi?', answers: ['A', 'O', 'L', 'M'], correct: 1 },
+        { question: 'Gap qanday yoziladi?', answers: ['kichik', 'katta', 'qalin', 'yog\'on'], correct: 1 },
+        { question: 'Nuqta qayerda qo\'yiladi?', answers: ['gap boshida', 'gap oxirida', 'o\'rtasida', 'hech qayerda'], correct: 1 },
+        { question: '"Maktab" so\'zining ma\'nosi?', answers: ['uy', 'o\'qish joyi', 'do\'kon', 'bog\''], correct: 1 },
+        { question: 'So\'roq gap oxiriga qanday belgi qo\'yiladi?', answers: ['!', '?', '.', ','], correct: 1 },
+        { question: '"Salom" so\'zi qanday ma\'noda?', answers: ['xayrlashish', 'salomlashish', 'rahmat', 'kechirasiz'], correct: 1 },
+        { question: 'O\'zbek tilida nechta undosh harf?', answers: ['20', '21', '22', '23'], correct: 2 }
+      ]
+    },
+    'ingliz-tili': {
+      title: '🌍 Ingliz tili (5-sinf)',
+      icon: '🌍',
+      time: 20,
+      questions: [
+        { question: '"Hello" meaning?', answers: ['Xayr', 'Salom', 'Rahmat', 'Kechirasiz'], correct: 1 },
+        { question: '"Cat" is?', answers: ['It', 'Mushuk', 'Sigir', 'Ot'], correct: 1 },
+        { question: 'What is "1" in English?', answers: ['One', 'Two', 'Three', 'Four'], correct: 0 },
+        { question: '"Red" color?', answers: ['Ko\'k', 'Yashil', 'Qizil', 'Sariq'], correct: 2 },
+        { question: '"Mother" meaning?', answers: ['Ota', 'Ona', 'Bola', 'Aka'], correct: 1 },
+        { question: '"School" is?', answers: ['Maktab', 'Bog\'cha', 'Universitet', 'Kollej'], correct: 0 },
+        { question: 'How are you?', answers: ['Salom', 'Rahmat', 'Yaxshimisiz', 'Xayr'], correct: 2 },
+        { question: '"Book" is?', answers: ['Qalam', 'Kitob', 'Daftar', 'Ruchka'], correct: 1 },
+        { question: '"Good" meaning?', answers: ['Yomon', 'Yaxshi', 'Katta', 'Kichik'], correct: 1 },
+        { question: '"Apple" is?', answers: ['Banan', 'Olma', 'Nok', 'Uzum'], correct: 1 }
+      ]
+    }
   },
-  'ona-tili': {
-    title: '📖 Ona tili',
-    icon: '📖',
-    time: 25,
-    questions: [
-      {
-        question: '"Oqilgan" so\'zining negizi qanday?',
-        answers: ['oq-', 'oqi-', 'oqil-', 'oqila-'],
-        correct: 0
-      },
-      {
-        question: 'Quyidagilardan qaysi birida undosh harf ishtirok etmagan?',
-        answers: ['kitob', 'ota', 'ona', 'u'],
-        correct: 3
-      },
-      {
-        question: '"Yaxshi" so\'zining qarama-qarshisi?',
-        answers: ['yomon', 'zo\'r', 'a\'lo', 'yaxshi'],
-        correct: 0
-      },
-      {
-        question: 'Gapning oxirida qanday belgi qo\'yiladi?',
-        answers: ['nuqta', 'vergul', 'nuqta-vergul', 'undov'],
-        correct: 0
-      },
-      {
-        question: '"Maktab" so\'zi nechta harfdan iborat?',
-        answers: ['5', '6', '7', '8'],
-        correct: 1
-      }
-    ]
+  
+  // ========== 6-A SINF TESTLARI ==========
+  '6a': {
+    'matematika': {
+      title: '🔢 Matematika (6-sinf)',
+      icon: '🔢',
+      time: 25,
+      questions: [
+        { question: '45 + 37 = ?', answers: ['72', '82', '92', '102'], correct: 1 },
+        { question: '120 - 45 = ?', answers: ['65', '75', '85', '95'], correct: 1 },
+        { question: '14 × 6 = ?', answers: ['74', '84', '94', '104'], correct: 1 },
+        { question: '144 ÷ 12 = ?', answers: ['10', '11', '12', '13'], correct: 2 },
+        { question: '3² = ?', answers: ['6', '8', '9', '12'], correct: 2 },
+        { question: '√64 = ?', answers: ['6', '7', '8', '9'], correct: 2 },
+        { question: 'Kasr 1/2 + 1/4 = ?', answers: ['1/4', '1/2', '3/4', '1'], correct: 2 },
+        { question: '25% of 200 = ?', answers: ['25', '50', '75', '100'], correct: 1 },
+        { question: '7 × 8 = ?', answers: ['48', '54', '56', '64'], correct: 2 },
+        { question: '81 ÷ 9 = ?', answers: ['7', '8', '9', '10'], correct: 2 }
+      ]
+    },
+    'ona-tili': {
+      title: '📖 Ona tili (6-sinf)',
+      icon: '📖',
+      time: 25,
+      questions: [
+        { question: 'Ot so\'z turkumi nimani bildiradi?', answers: ['Harakat', 'Narsa', 'Belgi', 'Sifat'], correct: 1 },
+        { question: 'Fe\'l qanday savolga javob beradi?', answers: ['Kim?', 'Nima?', 'Nima qildi?', 'Qanaqa?'], correct: 2 },
+        { question: 'Sifat qanday ma\'noni bildiradi?', answers: ['Narsa', 'Harakat', 'Belgi', 'Son'], correct: 2 },
+        { question: '"Yugurdi" qaysi turkum?', answers: ['Ot', 'Sifat', 'Fe\'l', 'Ravish'], correct: 2 },
+        { question: 'Gapning bosh bo\'laklari?', answers: ['ega, kesim', 'aniqlovchi', 'to\'ldiruvchi', 'hol'], correct: 0 },
+        { question: 'So\'roq olmoshlari?', answers: ['men', 'sen', 'kim?', 'biz'], correct: 2 },
+        { question: 'Ko\'plik qo\'shimchasi?', answers: ['-lar', '-ga', '-da', '-ni'], correct: 0 },
+        { question: '"Chiroyli" so\'zi qaysi turkum?', answers: ['Ot', 'Fe\'l', 'Sifat', 'Ravish'], correct: 2 },
+        { question: 'Kelishiklar nechta?', answers: ['4', '5', '6', '7'], correct: 2 },
+        { question: 'Bosh kelishik qaysi?', answers: ['Qaratqich', 'Tushum', 'Jo\'nalish', 'Bosh'], correct: 3 }
+      ]
+    },
+    'ingliz-tili': {
+      title: '🌍 Ingliz tili (6-sinf)',
+      icon: '🌍',
+      time: 25,
+      questions: [
+        { question: 'I ___ a student.', answers: ['am', 'is', 'are', 'be'], correct: 0 },
+        { question: 'She ___ to school every day.', answers: ['go', 'goes', 'going', 'went'], correct: 1 },
+        { question: 'They ___ playing football now.', answers: ['am', 'is', 'are', 'be'], correct: 2 },
+        { question: 'What is the past of "eat"?', answers: ['eated', 'ate', 'eaten', 'eating'], correct: 1 },
+        { question: '___ you like ice cream?', answers: ['Does', 'Do', 'Is', 'Are'], correct: 1 },
+        { question: 'My father ___ a doctor.', answers: ['am', 'is', 'are', 'be'], correct: 1 },
+        { question: 'We ___ to the park yesterday.', answers: ['go', 'goes', 'went', 'going'], correct: 2 },
+        { question: '___ is your name?', answers: ['What', 'Where', 'When', 'Who'], correct: 0 },
+        { question: 'I have ___ apple.', answers: ['a', 'an', 'the', 'no'], correct: 1 },
+        { question: 'She ___ English very well.', answers: ['speak', 'speaks', 'speaking', 'spoke'], correct: 1 }
+      ]
+    }
   },
-  'ingliz-tili': {
-    title: '🌍 Ingliz tili',
-    icon: '🌍',
-    time: 35,
-    questions: [
-      {
-        question: 'What is the past tense of "go"?',
-        answers: ['goes', 'went', 'gone', 'going'],
-        correct: 1
-      },
-      {
-        question: 'Choose the correct article: "___ apple"',
-        answers: ['a', 'an', 'the', 'no article'],
-        correct: 1
-      },
-      {
-        question: 'What color is the sky?',
-        answers: ['red', 'green', 'blue', 'yellow'],
-        correct: 2
-      },
-      {
-        question: 'How many days are in a week?',
-        answers: ['5', '6', '7', '8'],
-        correct: 2
-      },
-      {
-        question: 'What is "hello" in Uzbek?',
-        answers: ['xayr', 'rahmat', 'salom', 'qalay'],
-        correct: 2
-      }
-    ]
+  
+  // ========== 6-B SINF TESTLARI ==========
+  '6b': {
+    'matematika': {
+      title: '🔢 Matematika (6-sinf)',
+      icon: '🔢',
+      time: 25,
+      questions: [
+        { question: '45 + 37 = ?', answers: ['72', '82', '92', '102'], correct: 1 },
+        { question: '120 - 45 = ?', answers: ['65', '75', '85', '95'], correct: 1 },
+        { question: '14 × 6 = ?', answers: ['74', '84', '94', '104'], correct: 1 },
+        { question: '144 ÷ 12 = ?', answers: ['10', '11', '12', '13'], correct: 2 },
+        { question: '3² = ?', answers: ['6', '8', '9', '12'], correct: 2 },
+        { question: '√64 = ?', answers: ['6', '7', '8', '9'], correct: 2 },
+        { question: 'Kasr 1/2 + 1/4 = ?', answers: ['1/4', '1/2', '3/4', '1'], correct: 2 },
+        { question: '25% of 200 = ?', answers: ['25', '50', '75', '100'], correct: 1 },
+        { question: '7 × 8 = ?', answers: ['48', '54', '56', '64'], correct: 2 },
+        { question: '81 ÷ 9 = ?', answers: ['7', '8', '9', '10'], correct: 2 }
+      ]
+    },
+    'ona-tili': {
+      title: '📖 Ona tili (6-sinf)',
+      icon: '📖',
+      time: 25,
+      questions: [
+        { question: 'Ot so\'z turkumi nimani bildiradi?', answers: ['Harakat', 'Narsa', 'Belgi', 'Sifat'], correct: 1 },
+        { question: 'Fe\'l qanday savolga javob beradi?', answers: ['Kim?', 'Nima?', 'Nima qildi?', 'Qanaqa?'], correct: 2 },
+        { question: 'Sifat qanday ma\'noni bildiradi?', answers: ['Narsa', 'Harakat', 'Belgi', 'Son'], correct: 2 },
+        { question: '"Yugurdi" qaysi turkum?', answers: ['Ot', 'Sifat', 'Fe\'l', 'Ravish'], correct: 2 },
+        { question: 'Gapning bosh bo\'laklari?', answers: ['ega, kesim', 'aniqlovchi', 'to\'ldiruvchi', 'hol'], correct: 0 },
+        { question: 'So\'roq olmoshlari?', answers: ['men', 'sen', 'kim?', 'biz'], correct: 2 },
+        { question: 'Ko\'plik qo\'shimchasi?', answers: ['-lar', '-ga', '-da', '-ni'], correct: 0 },
+        { question: '"Chiroyli" so\'zi qaysi turkum?', answers: ['Ot', 'Fe\'l', 'Sifat', 'Ravish'], correct: 2 },
+        { question: 'Kelishiklar nechta?', answers: ['4', '5', '6', '7'], correct: 2 },
+        { question: 'Bosh kelishik qaysi?', answers: ['Qaratqich', 'Tushum', 'Jo\'nalish', 'Bosh'], correct: 3 }
+      ]
+    },
+    'ingliz-tili': {
+      title: '🌍 Ingliz tili (6-sinf)',
+      icon: '🌍',
+      time: 25,
+      questions: [
+        { question: 'I ___ a student.', answers: ['am', 'is', 'are', 'be'], correct: 0 },
+        { question: 'She ___ to school every day.', answers: ['go', 'goes', 'going', 'went'], correct: 1 },
+        { question: 'They ___ playing football now.', answers: ['am', 'is', 'are', 'be'], correct: 2 },
+        { question: 'What is the past of "eat"?', answers: ['eated', 'ate', 'eaten', 'eating'], correct: 1 },
+        { question: '___ you like ice cream?', answers: ['Does', 'Do', 'Is', 'Are'], correct: 1 },
+        { question: 'My father ___ a doctor.', answers: ['am', 'is', 'are', 'be'], correct: 1 },
+        { question: 'We ___ to the park yesterday.', answers: ['go', 'goes', 'went', 'going'], correct: 2 },
+        { question: '___ is your name?', answers: ['What', 'Where', 'When', 'Who'], correct: 0 },
+        { question: 'I have ___ apple.', answers: ['a', 'an', 'the', 'no'], correct: 1 },
+        { question: 'She ___ English very well.', answers: ['speak', 'speaks', 'speaking', 'spoke'], correct: 1 }
+      ]
+    }
   },
-  'fizika': {
-    title: '⚛️ Fizika',
-    icon: '⚛️',
-    time: 30,
-    questions: [
-      {
-        question: 'Yorug\'lik tezligi qanday?',
-        answers: ['300 000 km/s', '150 000 km/s', '500 000 km/s', '1 000 000 km/s'],
-        correct: 0
-      },
-      {
-        question: 'Suvning qaynash harorati qancha?',
-        answers: ['0°C', '50°C', '100°C', '200°C'],
-        correct: 2
-      },
-      {
-        question: 'Yerning tortishish tezlanishi qanday?',
-        answers: ['8.8 m/s²', '9.8 m/s²', '10.8 m/s²', '11.8 m/s²'],
-        correct: 1
-      },
-      {
-        question: 'Tok kuchi qanday o\'lchanadi?',
-        answers: ['Vatt', 'Amper', 'Volt', 'Om'],
-        correct: 1
-      },
-      {
-        question: 'Quyidagilardan qaysi birini fizika o\'rganmaydi?',
-        answers: ['Harakat', 'Issiqlik', 'O\'simliklar', 'Yorug\'lik'],
-        correct: 2
-      }
-    ]
+  
+  // ========== 7-A SINF TESTLARI ==========
+  '7a': {
+    'matematika': {
+      title: '🔢 Matematika (7-sinf)',
+      icon: '🔢',
+      time: 30,
+      questions: [
+        { question: '3x + 5 = 20, x = ?', answers: ['3', '4', '5', '6'], correct: 2 },
+        { question: '2(x + 3) = 14, x = ?', answers: ['2', '3', '4', '5'], correct: 2 },
+        { question: 'x² = 49, x = ?', answers: ['±5', '±6', '±7', '±8'], correct: 2 },
+        { question: '√121 = ?', answers: ['9', '10', '11', '12'], correct: 2 },
+        { question: '125 ni 5 ga bo\'lganda?', answers: ['15', '20', '25', '30'], correct: 2 },
+        { question: '-5 + 8 = ?', answers: ['-3', '3', '13', '-13'], correct: 1 },
+        { question: '7 - (-3) = ?', answers: ['4', '10', '-4', '-10'], correct: 1 },
+        { question: '(-6) × (-4) = ?', answers: ['-24', '24', '-10', '10'], correct: 1 },
+        { question: '12 ÷ (-3) = ?', answers: ['4', '-4', '36', '-36'], correct: 1 },
+        { question: '3² + 4² = ?', answers: ['5²', '6²', '7²', '8²'], correct: 0 }
+      ]
+    },
+    'fizika': {
+      title: '⚛️ Fizika (7-sinf)',
+      icon: '⚛️',
+      time: 30,
+      questions: [
+        { question: 'Mexanik harakat nima?', answers: ['Jismning o\'zgarishi', 'Jismning vaqt o\'tishi bilan vaziyatining o\'zgarishi', 'Jismning shakli o\'zgarishi', 'Jismning rangi o\'zgarishi'], correct: 1 },
+        { question: 'Tezlik formulasi?', answers: ['v = s/t', 'v = t/s', 'v = s × t', 'v = s + t'], correct: 0 },
+        { question: 'Inersiya nima?', answers: ['Jismning tinch holatini saqlashi', 'Jismning tezligini o\'zgartirishi', 'Jismning shakli o\'zgarishi', 'Jismning erishi'], correct: 0 },
+        { question: 'Kuch birligi?', answers: ['Joul', 'Vatt', 'Nyuton', 'Paskal'], correct: 2 },
+        { question: 'Og\'irlik kuchi formulasi?', answers: ['F = ma', 'F = mg', 'F = mv', 'F = m/t'], correct: 1 },
+        { question: 'Ishqalanish kuchi...', answers: ['harakatni tezlashtiradi', 'harakatni sekinlashtiradi', 'harakatga ta\'sir qilmaydi', 'harakatni to\'xtatadi'], correct: 1 },
+        { question: 'Bosim formulasi?', answers: ['P = F/S', 'P = S/F', 'P = F × S', 'P = F + S'], correct: 0 },
+        { question: 'Suyuqlik bosimi...', answers: ['faqat pastga', 'faqat yuqoriga', 'hamma tomonga', 'yon tomonga'], correct: 2 },
+        { question: 'Arximed kuchi...', answers: ['yuqoriga', 'pastga', 'yon tomonga', 'aylana bo\'ylab'], correct: 0 },
+        { question: 'Energiya birligi?', answers: ['Nyuton', 'Vatt', 'Joul', 'Paskal'], correct: 2 }
+      ]
+    },
+    'ona-tili': {
+      title: '📖 Ona tili (7-sinf)',
+      icon: '📖',
+      time: 25,
+      questions: [
+        { question: 'Gapning ikkinchi darajali bo\'laklari?', answers: ['ega, kesim', 'aniqlovchi, to\'ldiruvchi, hol', 'ot, sifat', 'fe\'l, ravish'], correct: 1 },
+        { question: 'Aniqlovchi qanday savolga javob beradi?', answers: ['Kim?', 'Nima?', 'Qanaqa?', 'Qayerda?'], correct: 2 },
+        { question: 'To\'ldiruvchi qanday savolga javob beradi?', answers: ['Kimni?', 'Qanaqa?', 'Qayerda?', 'Qachon?'], correct: 0 },
+        { question: 'Hol qanday savolga javob beradi?', answers: ['Kim?', 'Nima?', 'Qanaqa?', 'Qayerda?'], correct: 3 },
+        { question: 'Sodda gap necha bo\'lakdan iborat?', answers: ['1', '2', '3', '4'], correct: 1 },
+        { question: 'Qo\'shma gap necha sodda gapdan tashkil topadi?', answers: ['1', '2 yoki undan ko\'p', '3', '4'], correct: 1 },
+        { question: 'Bog\'lovchisiz qo\'shma gap...', answers: ['bog\'lovchi bilan', 'bog\'lovchisiz', 'yordamchi so\'z bilan', 'ko\'makchi bilan'], correct: 1 },
+        { question: 'Uyushiq bo\'laklar...', answers: ['bir-biriga bog\'liq', 'bir-biriga bog\'liq emas', 'bir xil savolga javob beradi', 'turli savolga javob beradi'], correct: 2 },
+        { question: 'Kirish so\'zlar...', answers: ['gap bo\'lagi', 'gap bo\'lagi emas', 'ega', 'kesim'], correct: 1 },
+        { question: 'Undalma...', answers: ['kimga murojaat', 'narsaga murojaat', 'harakatga murojaat', 'belgiga murojaat'], correct: 0 }
+      ]
+    }
   },
-  'kimyo': {
-    title: '🧪 Kimyo',
-    icon: '🧪',
-    time: 25,
-    questions: [
-      {
-        question: 'Suvning kimyoviy formulasi?',
-        answers: ['H2O', 'CO2', 'O2', 'N2'],
-        correct: 0
-      },
-      {
-        question: 'Vodorodning atom raqami?',
-        answers: ['0', '1', '2', '3'],
-        correct: 1
-      },
-      {
-        question: 'Oltinning kimyoviy belgisi?',
-        answers: ['Go', 'Gd', 'Au', 'Ag'],
-        correct: 2
-      },
-      {
-        question: 'pH neytral qiymati?',
-        answers: ['0', '7', '14', '21'],
-        correct: 1
-      },
-      {
-        question: 'Karbonat angidrid formulasi?',
-        answers: ['CO', 'CO2', 'C2O', 'C3O'],
-        correct: 1
-      }
-    ]
+  
+  // ========== 7-B SINF TESTLARI ==========
+  '7b': {
+    'matematika': {
+      title: '🔢 Matematika (7-sinf)',
+      icon: '🔢',
+      time: 30,
+      questions: [
+        { question: '3x + 5 = 20, x = ?', answers: ['3', '4', '5', '6'], correct: 2 },
+        { question: '2(x + 3) = 14, x = ?', answers: ['2', '3', '4', '5'], correct: 2 },
+        { question: 'x² = 49, x = ?', answers: ['±5', '±6', '±7', '±8'], correct: 2 },
+        { question: '√121 = ?', answers: ['9', '10', '11', '12'], correct: 2 },
+        { question: '125 ni 5 ga bo\'lganda?', answers: ['15', '20', '25', '30'], correct: 2 },
+        { question: '-5 + 8 = ?', answers: ['-3', '3', '13', '-13'], correct: 1 },
+        { question: '7 - (-3) = ?', answers: ['4', '10', '-4', '-10'], correct: 1 },
+        { question: '(-6) × (-4) = ?', answers: ['-24', '24', '-10', '10'], correct: 1 },
+        { question: '12 ÷ (-3) = ?', answers: ['4', '-4', '36', '-36'], correct: 1 },
+        { question: '3² + 4² = ?', answers: ['5²', '6²', '7²', '8²'], correct: 0 }
+      ]
+    },
+    'fizika': {
+      title: '⚛️ Fizika (7-sinf)',
+      icon: '⚛️',
+      time: 30,
+      questions: [
+        { question: 'Mexanik harakat nima?', answers: ['Jismning o\'zgarishi', 'Jismning vaqt o\'tishi bilan vaziyatining o\'zgarishi', 'Jismning shakli o\'zgarishi', 'Jismning rangi o\'zgarishi'], correct: 1 },
+        { question: 'Tezlik formulasi?', answers: ['v = s/t', 'v = t/s', 'v = s × t', 'v = s + t'], correct: 0 },
+        { question: 'Inersiya nima?', answers: ['Jismning tinch holatini saqlashi', 'Jismning tezligini o\'zgartirishi', 'Jismning shakli o\'zgarishi', 'Jismning erishi'], correct: 0 },
+        { question: 'Kuch birligi?', answers: ['Joul', 'Vatt', 'Nyuton', 'Paskal'], correct: 2 },
+        { question: 'Og\'irlik kuchi formulasi?', answers: ['F = ma', 'F = mg', 'F = mv', 'F = m/t'], correct: 1 },
+        { question: 'Ishqalanish kuchi...', answers: ['harakatni tezlashtiradi', 'harakatni sekinlashtiradi', 'harakatga ta\'sir qilmaydi', 'harakatni to\'xtatadi'], correct: 1 },
+        { question: 'Bosim formulasi?', answers: ['P = F/S', 'P = S/F', 'P = F × S', 'P = F + S'], correct: 0 },
+        { question: 'Suyuqlik bosimi...', answers: ['faqat pastga', 'faqat yuqoriga', 'hamma tomonga', 'yon tomonga'], correct: 2 },
+        { question: 'Arximed kuchi...', answers: ['yuqoriga', 'pastga', 'yon tomonga', 'aylana bo\'ylab'], correct: 0 },
+        { question: 'Energiya birligi?', answers: ['Nyuton', 'Vatt', 'Joul', 'Paskal'], correct: 2 }
+      ]
+    },
+    'ona-tili': {
+      title: '📖 Ona tili (7-sinf)',
+      icon: '📖',
+      time: 25,
+      questions: [
+        { question: 'Gapning ikkinchi darajali bo\'laklari?', answers: ['ega, kesim', 'aniqlovchi, to\'ldiruvchi, hol', 'ot, sifat', 'fe\'l, ravish'], correct: 1 },
+        { question: 'Aniqlovchi qanday savolga javob beradi?', answers: ['Kim?', 'Nima?', 'Qanaqa?', 'Qayerda?'], correct: 2 },
+        { question: 'To\'ldiruvchi qanday savolga javob beradi?', answers: ['Kimni?', 'Qanaqa?', 'Qayerda?', 'Qachon?'], correct: 0 },
+        { question: 'Hol qanday savolga javob beradi?', answers: ['Kim?', 'Nima?', 'Qanaqa?', 'Qayerda?'], correct: 3 },
+        { question: 'Sodda gap necha bo\'lakdan iborat?', answers: ['1', '2', '3', '4'], correct: 1 },
+        { question: 'Qo\'shma gap necha sodda gapdan tashkil topadi?', answers: ['1', '2 yoki undan ko\'p', '3', '4'], correct: 1 },
+        { question: 'Bog\'lovchisiz qo\'shma gap...', answers: ['bog\'lovchi bilan', 'bog\'lovchisiz', 'yordamchi so\'z bilan', 'ko\'makchi bilan'], correct: 1 },
+        { question: 'Uyushiq bo\'laklar...', answers: ['bir-biriga bog\'liq', 'bir-biriga bog\'liq emas', 'bir xil savolga javob beradi', 'turli savolga javob beradi'], correct: 2 },
+        { question: 'Kirish so\'zlar...', answers: ['gap bo\'lagi', 'gap bo\'lagi emas', 'ega', 'kesim'], correct: 1 },
+        { question: 'Undalma...', answers: ['kimga murojaat', 'narsaga murojaat', 'harakatga murojaat', 'belgiga murojaat'], correct: 0 }
+      ]
+    }
   },
-  'biologiya': {
-    title: '🧬 Biologiya',
-    icon: '🧬',
-    time: 30,
-    questions: [
-      {
-        question: 'Inson tanasida nechta suyak bor?',
-        answers: ['106', '206', '306', '406'],
-        correct: 1
-      },
-      {
-        question: 'Qonni qaysi a\'zo tozalaydi?',
-        answers: ['Jigar', 'Yurak', 'Buyrak', 'O\'pka'],
-        correct: 2
-      },
-      {
-        question: 'Fotosintez qayerda sodir bo\'ladi?',
-        answers: ['Mitoxondriya', 'Xloroplast', 'Yadro', 'Sitoplazma'],
-        correct: 1
-      },
-      {
-        question: 'DNK to\'liq nomi?',
-        answers: ['Deoksiribonuklein kislota', 'Ribonuklein kislota', 'Aminokislota', 'Protein'],
-        correct: 0
-      },
-      {
-        question: 'Odamning eng katta a\'zosi?',
-        answers: ['Yurak', 'Jigar', 'Teri', 'O\'pka'],
-        correct: 2
-      }
-    ]
-  },
+  
+  // ========== KOMBINATSION TEST (Barcha sinflar uchun) ==========
   'katta-test': {
     title: '🎯 Kombinatsion test',
     icon: '🎯',
     time: 60,
     questions: [
-      // Matematika (5 ta)
-      {
-        question: '15 + 27 = ?',
-        answers: ['40', '41', '42', '43'],
-        correct: 2
-      },
-      {
-        question: '8 × 7 = ?',
-        answers: ['54', '55', '56', '57'],
-        correct: 2
-      },
-      {
-        question: '144 ÷ 12 = ?',
-        answers: ['10', '11', '12', '13'],
-        correct: 2
-      },
-      {
-        question: '9² = ?',
-        answers: ['71', '81', '91', '101'],
-        correct: 1
-      },
-      {
-        question: '√144 = ?',
-        answers: ['10', '11', '12', '13'],
-        correct: 2
-      },
-      // Ona tili (5 ta)
-      {
-        question: '"Bilim" so\'zining sinonimi?',
-        answers: ['ilm', 'savad', 'xotira', 'tushuncha'],
-        correct: 0
-      },
-      {
-        question: 'O\'zbek alifbosida nechta harf bor?',
-        answers: ['28', '29', '30', '31'],
-        correct: 1
-      },
-      {
-        question: '"Yoz" fe\'lining kelasi zamoni?',
-        answers: ['yozdi', 'yozadi', 'yozmoqda', 'yozilgan'],
-        correct: 1
-      },
-      {
-        question: '"Quyosh" so\'zining antonimi?',
-        answers: ['oy', 'yulduz', 'tun', 'bulut'],
-        correct: 2
-      },
-      {
-        question: '"Maktab" so\'zining ko\'plik shakli?',
-        answers: ['maktablar', 'maktablarimiz', 'maktabda', 'maktabga'],
-        correct: 0
-      },
-      // Ingliz tili (5 ta)
-      {
-        question: 'I ___ to school every day.',
-        answers: ['go', 'goes', 'going', 'went'],
-        correct: 0
-      },
-      {
-        question: 'She ___ English very well.',
-        answers: ['speak', 'speaks', 'speaking', 'spoke'],
-        correct: 1
-      },
-      {
-        question: 'What is the opposite of "hot"?',
-        answers: ['warm', 'cool', 'cold', 'freezing'],
-        correct: 2
-      },
-      {
-        question: 'The capital of Uzbekistan?',
-        answers: ['Samarkand', 'Bukhara', 'Tashkent', 'Andijan'],
-        correct: 2
-      },
-      {
-        question: 'How many months in a year?',
-        answers: ['10', '11', '12', '13'],
-        correct: 2
-      },
-      // Fizika (5 ta)
-      {
-        question: 'Kuchning birligi?',
-        answers: ['Nyuton', 'Joul', 'Vatt', 'Paskal'],
-        correct: 0
-      },
-      {
-        question: 'Elektr zaryadining birligi?',
-        answers: ['Kulon', 'Vatt', 'Volt', 'Amper'],
-        correct: 0
-      },
-      {
-        question: 'Suvning muzlash harorati?',
-        answers: ['-10°C', '0°C', '10°C', '100°C'],
-        correct: 1
-      },
-      {
-        question: 'Ovoz tezligi havoda?',
-        answers: ['340 m/s', '300 m/s', '400 m/s', '500 m/s'],
-        correct: 0
-      },
-      {
-        question: 'Mexanik ishning birligi?',
-        answers: ['Joul', 'Nyuton', 'Vatt', 'Paskal'],
-        correct: 0
-      },
-      // Kimyo (5 ta)
-      {
-        question: 'Kislorodning kimyoviy belgisi?',
-        answers: ['O', 'K', 'H', 'N'],
-        correct: 0
-      },
-      {
-        question: 'Sulfat kislota formulasi?',
-        answers: ['H2SO4', 'HCl', 'HNO3', 'H3PO4'],
-        correct: 0
-      },
-      {
-        question: 'Tuzning formulasi?',
-        answers: ['NaCl', 'KCl', 'CaCl2', 'MgCl2'],
-        correct: 0
-      },
-      {
-        question: 'Mendeleev jadvalida nechta element bor?',
-        answers: ['98', '108', '118', '128'],
-        correct: 2
-      },
-      {
-        question: 'Natriyning kimyoviy belgisi?',
-        answers: ['Na', 'N', 'S', 'K'],
-        correct: 0
-      },
-      // Biologiya (5 ta)
-      {
-        question: 'Yurak qaysi sistemaga kiradi?',
-        answers: ['Nerv sistemasi', 'Qon aylanish sistemasi', 'Nafas olish sistemasi', 'Hazm qilish sistemasi'],
-        correct: 1
-      },
-      {
-        question: 'O\'pka qaysi sistemaga kiradi?',
-        answers: ['Nerv sistemasi', 'Qon aylanish sistemasi', 'Nafas olish sistemasi', 'Hazm qilish sistemasi'],
-        correct: 2
-      },
-      {
-        question: 'Insulin qayerda ishlab chiqariladi?',
-        answers: ['Jigar', 'Me\'da', 'Oshqozon osti bezi', 'Buyrak'],
-        correct: 2
-      },
-      {
-        question: 'Qonning rangini nima beradi?',
-        answers: ['Gemoglobin', 'Plazma', 'Trombotsit', 'Leykotsit'],
-        correct: 0
-      },
-      {
-        question: 'Viruslar hujayrami?',
-        answers: ['Ha', 'Yo\'q', 'Qisman', 'Ba\'zilari'],
-        correct: 1
-      }
+      { question: '5 + 7 = ?', answers: ['10', '11', '12', '13'], correct: 2 },
+      { question: 'O\'zbek alifbosida nechta harf?', answers: ['28', '29', '30', '31'], correct: 1 },
+      { question: '"Hello" meaning?', answers: ['Xayr', 'Salom', 'Rahmat', 'Kechirasiz'], correct: 1 },
+      { question: 'Yorug\'lik tezligi?', answers: ['300 000 km/s', '150 000 km/s', '500 000 km/s', '1 000 000 km/s'], correct: 0 },
+      { question: 'Suv formulasi?', answers: ['H₂O', 'CO₂', 'O₂', 'N₂'], correct: 0 },
+      { question: 'Inson tanasida nechta suyak?', answers: ['106', '206', '306', '406'], correct: 1 },
+      { question: '√144 = ?', answers: ['10', '11', '12', '13'], correct: 2 },
+      { question: '"Kitob" so\'zida nechta harf?', answers: ['4', '5', '6', '7'], correct: 1 },
+      { question: 'I ___ a student.', answers: ['am', 'is', 'are', 'be'], correct: 0 },
+      { question: 'Kuch birligi?', answers: ['Nyuton', 'Joul', 'Vatt', 'Paskal'], correct: 0 },
+      { question: 'Kislorodning belgisi?', answers: ['O', 'K', 'H', 'N'], correct: 0 },
+      { question: 'Yurak qaysi sistemaga kiradi?', answers: ['Nerv', 'Qon aylanish', 'Nafas olish', 'Hazm qilish'], correct: 1 },
+      { question: '3x + 5 = 20, x = ?', answers: ['3', '4', '5', '6'], correct: 2 },
+      { question: 'Gap oxiriga qanday belgi qo\'yiladi?', answers: ['!', '?', '.', ','], correct: 2 },
+      { question: 'What is "cat"?', answers: ['It', 'Mushuk', 'Sigir', 'Ot'], correct: 1 },
+      { question: 'Suvning qaynash harorati?', answers: ['0°C', '50°C', '100°C', '200°C'], correct: 2 },
+      { question: 'Natriy xlorid formulasi?', answers: ['NaCl', 'KCl', 'CaCl₂', 'MgCl₂'], correct: 0 },
+      { question: 'Qonning rangini nima beradi?', answers: ['Gemoglobin', 'Plazma', 'Trombotsit', 'Leykotsit'], correct: 0 }
     ]
   }
 };
 
 // Test tizimi o'zgaruvchilari
-let currentClass = 5;
+let currentClass = '5';
 let currentSubject = null;
 let currentQuestionIndex = 0;
 let userAnswers = [];
@@ -372,7 +318,7 @@ let startTime = null;
 
 // Sahifa yuklanganda
 document.addEventListener('DOMContentLoaded', function() {
-  loadSubjects(5);
+  loadSubjects('5');
 });
 
 // Sinf tanlash
@@ -393,45 +339,89 @@ function selectTestClass(classNum) {
   loadSubjects(classNum);
 }
 
-// Fanlarni yuklash
+// Fanlarni yuklash (sinfga mos)
 function loadSubjects(classNum) {
   const subjectsGrid = document.getElementById('subjects-grid');
   
+  // Berilgan sinf uchun testlar mavjudligini tekshirish
+  const classTests = testData[classNum] || {};
+  
   let html = '';
   
-  // Fanlar ro'yxati
-  const subjects = [
-    { id: 'matematika', name: 'Matematika', icon: '🔢', questions: 15 + classNum, time: 20 + classNum, desc: `${classNum}-sinf uchun matematika testlari` },
-    { id: 'ona-tili', name: 'Ona tili', icon: '📖', questions: 15 + classNum, time: 20 + classNum, desc: `${classNum}-sinf uchun ona tili testlari` },
-    { id: 'ingliz-tili', name: 'Ingliz tili', icon: '🌍', questions: 15 + classNum, time: 20 + classNum, desc: `${classNum}-sinf uchun ingliz tili testlari` }
-  ];
+  // Fanlar ro'yxati (faqat mavjud fanlar)
+  const availableSubjects = [];
   
-  // Katta sinflar uchun qo'shimcha fanlar
-  if (classNum >= 7) {
-    subjects.push({ id: 'fizika', name: 'Fizika', icon: '⚛️', questions: 15 + classNum, time: 20 + classNum, desc: `${classNum}-sinf uchun fizika testlari` });
+  if (classTests['matematika']) {
+    availableSubjects.push({ 
+      id: 'matematika', 
+      name: 'Matematika', 
+      icon: '🔢', 
+      questions: classTests['matematika'].questions.length,
+      time: classTests['matematika'].time,
+      desc: `${getClassName(classNum)} uchun matematika testlari`
+    });
   }
   
-  if (classNum >= 8) {
-    subjects.push({ id: 'kimyo', name: 'Kimyo', icon: '🧪', questions: 15 + classNum, time: 20 + classNum, desc: `${classNum}-sinf uchun kimyo testlari` });
+  if (classTests['ona-tili']) {
+    availableSubjects.push({ 
+      id: 'ona-tili', 
+      name: 'Ona tili', 
+      icon: '📖', 
+      questions: classTests['ona-tili'].questions.length,
+      time: classTests['ona-tili'].time,
+      desc: `${getClassName(classNum)} uchun ona tili testlari`
+    });
   }
   
-  if (classNum >= 6) {
-    subjects.push({ id: 'biologiya', name: 'Biologiya', icon: '🧬', questions: 15 + classNum, time: 20 + classNum, desc: `${classNum}-sinf uchun biologiya testlari` });
+  if (classTests['ingliz-tili']) {
+    availableSubjects.push({ 
+      id: 'ingliz-tili', 
+      name: 'Ingliz tili', 
+      icon: '🌍', 
+      questions: classTests['ingliz-tili'].questions.length,
+      time: classTests['ingliz-tili'].time,
+      desc: `${getClassName(classNum)} uchun ingliz tili testlari`
+    });
   }
   
-  // Katta test
-  subjects.push({ 
-    id: 'katta-test', 
-    name: '🎯 Kombinatsion test', 
-    icon: '🎯', 
-    questions: 30 + classNum * 2, 
-    time: 40 + classNum * 2, 
-    desc: `${classNum}-sinf uchun barcha fanlardan test`,
-    large: true 
-  });
+  if (classTests['fizika']) {
+    availableSubjects.push({ 
+      id: 'fizika', 
+      name: 'Fizika', 
+      icon: '⚛️', 
+      questions: classTests['fizika'].questions.length,
+      time: classTests['fizika'].time,
+      desc: `${getClassName(classNum)} uchun fizika testlari`
+    });
+  }
+  
+  // Kombinatsion test (har doim qo'shiladi)
+  const kattaTest = testData['katta-test'];
+  if (kattaTest) {
+    availableSubjects.push({ 
+      id: 'katta-test', 
+      name: '🎯 Kombinatsion test', 
+      icon: '🎯', 
+      questions: kattaTest.questions.length,
+      time: kattaTest.time,
+      desc: `Barcha fanlardan ${kattaTest.questions.length} ta savol`,
+      large: true
+    });
+  }
+  
+  // Agar hech qanday fan bo'lmasa
+  if (availableSubjects.length === 0) {
+    subjectsGrid.innerHTML = `
+      <div style="text-align: center; padding: 50px;">
+        <h3>📚 Bu sinf uchun testlar hozircha tayyorlanmoqda</h3>
+        <p>Tez orada qo'shiladi!</p>
+      </div>
+    `;
+    return;
+  }
   
   // Fan kartochkalarini yaratish
-  subjects.forEach(subject => {
+  availableSubjects.forEach(subject => {
     html += `
       <div class="subject-card ${subject.large ? 'large-test' : ''}" onclick="selectSubject('${subject.id}')">
         <div class="subject-icon">${subject.icon}</div>
@@ -446,6 +436,23 @@ function loadSubjects(classNum) {
   });
   
   subjectsGrid.innerHTML = html;
+}
+
+// Sinf nomini olish
+function getClassName(classNum) {
+  const classNames = {
+    '5': '5-sinf',
+    '6a': '6-A sinf',
+    '6b': '6-B sinf',
+    '7a': '7-A sinf',
+    '7b': '7-B sinf',
+    '8a': '8-A sinf',
+    '8b': '8-B sinf',
+    '9a': '9-A sinf',
+    '9b': '9-B sinf',
+    '10a': '10-A sinf'
+  };
+  return classNames[classNum] || classNum + '-sinf';
 }
 
 // Fanni tanlash
@@ -480,10 +487,20 @@ function submitStudentInfo(event) {
   startTest();
 }
 
-// Testni boshlash
+// Testni boshlash (sinf va fanga mos)
 function startTest() {
-  const test = testData[currentSubject];
-  if (!test) return;
+  // Test ma'lumotlarini olish
+  let test;
+  if (currentSubject === 'katta-test') {
+    test = testData['katta-test'];
+  } else {
+    test = testData[currentClass]?.[currentSubject];
+  }
+  
+  if (!test) {
+    alert('Test topilmadi!');
+    return;
+  }
   
   // O'zgaruvchilarni sozlash
   currentQuestionIndex = 0;
@@ -509,15 +526,18 @@ function startTest() {
 function startTimer() {
   const timerElement = document.getElementById('timer');
   
+  if (timer) clearInterval(timer);
+  
   timer = setInterval(() => {
-    const minutes = Math.floor(timeLeft / 60);
-    const seconds = timeLeft % 60;
-    timerElement.innerHTML = `⏱️ ${minutes}:${seconds.toString().padStart(2, '0')}`;
-    
     if (timeLeft <= 0) {
       clearInterval(timer);
       finishTest();
+      return;
     }
+    
+    const minutes = Math.floor(timeLeft / 60);
+    const seconds = timeLeft % 60;
+    timerElement.innerHTML = `⏱️ ${minutes}:${seconds.toString().padStart(2, '0')}`;
     
     timeLeft--;
   }, 1000);
@@ -525,9 +545,16 @@ function startTimer() {
 
 // Savolni ko'rsatish
 function showQuestion() {
-  const test = testData[currentSubject];
-  const question = test.questions[currentQuestionIndex];
+  let test;
+  if (currentSubject === 'katta-test') {
+    test = testData['katta-test'];
+  } else {
+    test = testData[currentClass]?.[currentSubject];
+  }
   
+  if (!test) return;
+  
+  const question = test.questions[currentQuestionIndex];
   const container = document.getElementById('question-container');
   
   let answersHtml = '';
@@ -568,34 +595,57 @@ function selectAnswer(answerIndex) {
   });
   
   // Yangi tanlovni belgilash
-  document.querySelectorAll('.answer-option')[answerIndex].classList.add('selected');
-  document.getElementById(`answer-${answerIndex}`).checked = true;
+  const options = document.querySelectorAll('.answer-option');
+  if (options[answerIndex]) {
+    options[answerIndex].classList.add('selected');
+    const radio = options[answerIndex].querySelector('input[type="radio"]');
+    if (radio) radio.checked = true;
+  }
 }
 
 // Progress barni yangilash
 function updateProgress() {
-  const test = testData[currentSubject];
+  let test;
+  if (currentSubject === 'katta-test') {
+    test = testData['katta-test'];
+  } else {
+    test = testData[currentClass]?.[currentSubject];
+  }
+  
+  if (!test) return;
+  
   const progress = ((currentQuestionIndex + 1) / test.questions.length) * 100;
   
-  document.getElementById('progress-fill').style.width = `${progress}%`;
-  document.getElementById('progress-text').innerHTML = `${currentQuestionIndex + 1}/${test.questions.length}`;
+  const progressFill = document.getElementById('progress-fill');
+  const progressText = document.getElementById('progress-text');
+  
+  if (progressFill) progressFill.style.width = `${progress}%`;
+  if (progressText) progressText.innerHTML = `${currentQuestionIndex + 1}/${test.questions.length}`;
 }
 
 // Navigatsiyani yangilash
 function updateNavigation() {
-  const test = testData[currentSubject];
+  let test;
+  if (currentSubject === 'katta-test') {
+    test = testData['katta-test'];
+  } else {
+    test = testData[currentClass]?.[currentSubject];
+  }
+  
+  if (!test) return;
+  
   const prevBtn = document.getElementById('prev-btn');
   const nextBtn = document.getElementById('next-btn');
   const finishBtn = document.getElementById('finish-btn');
   
-  prevBtn.disabled = currentQuestionIndex === 0;
+  if (prevBtn) prevBtn.disabled = currentQuestionIndex === 0;
   
   if (currentQuestionIndex === test.questions.length - 1) {
-    nextBtn.style.display = 'none';
-    finishBtn.style.display = 'block';
+    if (nextBtn) nextBtn.style.display = 'none';
+    if (finishBtn) finishBtn.style.display = 'block';
   } else {
-    nextBtn.style.display = 'block';
-    finishBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'block';
+    if (finishBtn) finishBtn.style.display = 'none';
   }
 }
 
@@ -609,8 +659,14 @@ function previousQuestion() {
 
 // Keyingi savol
 function nextQuestion() {
-  const test = testData[currentSubject];
-  if (currentQuestionIndex < test.questions.length - 1) {
+  let test;
+  if (currentSubject === 'katta-test') {
+    test = testData['katta-test'];
+  } else {
+    test = testData[currentClass]?.[currentSubject];
+  }
+  
+  if (test && currentQuestionIndex < test.questions.length - 1) {
     currentQuestionIndex++;
     showQuestion();
   }
@@ -618,9 +674,17 @@ function nextQuestion() {
 
 // Testni tugatish
 function finishTest() {
-  clearInterval(timer);
+  if (timer) clearInterval(timer);
   
-  const test = testData[currentSubject];
+  let test;
+  if (currentSubject === 'katta-test') {
+    test = testData['katta-test'];
+  } else {
+    test = testData[currentClass]?.[currentSubject];
+  }
+  
+  if (!test) return;
+  
   let correctCount = 0;
   
   // Javoblarni tekshirish
@@ -644,58 +708,75 @@ function finishTest() {
 // Natijalarni ko'rsatish
 function showResults(correct, total, percentage, timeString) {
   // Asosiy ma'lumotlar
-  document.getElementById('score-percentage').innerHTML = `${percentage}%`;
-  document.getElementById('correct-count').innerHTML = correct;
-  document.getElementById('total-count').innerHTML = total;
-  document.getElementById('time-taken').innerHTML = timeString;
-  document.getElementById('score-points').innerHTML = correct * 10;
+  const scorePercentage = document.getElementById('score-percentage');
+  const correctCount = document.getElementById('correct-count');
+  const totalCount = document.getElementById('total-count');
+  const timeTaken = document.getElementById('time-taken');
+  const scorePoints = document.getElementById('score-points');
+  
+  if (scorePercentage) scorePercentage.innerHTML = `${percentage}%`;
+  if (correctCount) correctCount.innerHTML = correct;
+  if (totalCount) totalCount.innerHTML = total;
+  if (timeTaken) timeTaken.innerHTML = timeString;
+  if (scorePoints) scorePoints.innerHTML = correct * 10;
   
   // Progress barlar
-  document.getElementById('correct-bar').style.width = `${percentage}%`;
-  document.getElementById('incorrect-bar').style.width = `${100 - percentage}%`;
-  document.getElementById('correct-percent').innerHTML = `${percentage}%`;
-  document.getElementById('incorrect-percent').innerHTML = `${100 - percentage}%`;
+  const correctBar = document.getElementById('correct-bar');
+  const incorrectBar = document.getElementById('incorrect-bar');
+  const correctPercent = document.getElementById('correct-percent');
+  const incorrectPercent = document.getElementById('incorrect-percent');
+  
+  if (correctBar) correctBar.style.width = `${percentage}%`;
+  if (incorrectBar) incorrectBar.style.width = `${100 - percentage}%`;
+  if (correctPercent) correctPercent.innerHTML = `${percentage}%`;
+  if (incorrectPercent) incorrectPercent.innerHTML = `${100 - percentage}%`;
   
   // Natija xabari
   const messageElement = document.getElementById('results-message');
-  messageElement.className = 'results-message';
-  
-  if (percentage >= 90) {
-    messageElement.className += ' excellent';
-    messageElement.innerHTML = '🎉 Ajoyib! Sizning bilimingiz juda yaxshi!';
-  } else if (percentage >= 70) {
-    messageElement.className += ' good';
-    messageElement.innerHTML = '👍 Yaxshi natija! Ozgina mashq qilsangiz yetarli';
-  } else if (percentage >= 50) {
-    messageElement.className += ' average';
-    messageElement.innerHTML = '📚 Qoniqarli. Ko\'proq mashq qilishingiz kerak';
-  } else {
-    messageElement.className += ' poor';
-    messageElement.innerHTML = '💪 Xafa bo\'lmang! Qayta urinib ko\'ring';
+  if (messageElement) {
+    messageElement.className = 'results-message';
+    
+    if (percentage >= 90) {
+      messageElement.className += ' excellent';
+      messageElement.innerHTML = '🎉 Ajoyib! Sizning bilimingiz juda yaxshi!';
+    } else if (percentage >= 70) {
+      messageElement.className += ' good';
+      messageElement.innerHTML = '👍 Yaxshi natija! Ozgina mashq qilsangiz yetarli';
+    } else if (percentage >= 50) {
+      messageElement.className += ' average';
+      messageElement.innerHTML = '📚 Qoniqarli. Ko\'proq mashq qilishingiz kerak';
+    } else {
+      messageElement.className += ' poor';
+      messageElement.innerHTML = '💪 Xafa bo\'lmang! Qayta urinib ko\'ring';
+    }
   }
   
-  // Score circle animatsiyasi
-  const scoreCircle = document.getElementById('score-circle');
-  scoreCircle.style.background = `conic-gradient(#2563eb 0% ${percentage}%, #e2e8f0 ${percentage}% 100%)`;
-  
   // Testni yashirish, natijalarni ko'rsatish
-  document.getElementById('test-container').style.display = 'none';
-  document.getElementById('results-container').style.display = 'block';
+  const testContainer = document.getElementById('test-container');
+  const resultsContainer = document.getElementById('results-container');
+  
+  if (testContainer) testContainer.style.display = 'none';
+  if (resultsContainer) resultsContainer.style.display = 'block';
 }
 
 // Testni qayta boshlash
 function restartTest() {
-  document.getElementById('results-container').style.display = 'none';
+  const resultsContainer = document.getElementById('results-container');
+  if (resultsContainer) resultsContainer.style.display = 'none';
   startTest();
 }
 
 // Test tanlashga qaytish
 function backToTestSelection() {
-  clearInterval(timer);
+  if (timer) clearInterval(timer);
   
-  document.getElementById('results-container').style.display = 'none';
-  document.getElementById('test-container').style.display = 'none';
-  document.getElementById('test-selection').style.display = 'block';
+  const resultsContainer = document.getElementById('results-container');
+  const testContainer = document.getElementById('test-container');
+  const testSelection = document.getElementById('test-selection');
+  
+  if (resultsContainer) resultsContainer.style.display = 'none';
+  if (testContainer) testContainer.style.display = 'none';
+  if (testSelection) testSelection.style.display = 'block';
   
   currentSubject = null;
   currentQuestionIndex = 0;
@@ -705,10 +786,13 @@ function backToTestSelection() {
 // Chiqish
 function exitTest() {
   if (confirm('Testni tark etishga ishonchingiz komilmi?')) {
-    clearInterval(timer);
+    if (timer) clearInterval(timer);
     
-    document.getElementById('test-container').style.display = 'none';
-    document.getElementById('test-selection').style.display = 'block';
+    const testContainer = document.getElementById('test-container');
+    const testSelection = document.getElementById('test-selection');
+    
+    if (testContainer) testContainer.style.display = 'none';
+    if (testSelection) testSelection.style.display = 'block';
     
     currentSubject = null;
     currentQuestionIndex = 0;
@@ -718,18 +802,28 @@ function exitTest() {
 
 // Batafsil natijalar
 function showDetailedResults() {
-  const test = testData[currentSubject];
-  let details = '===== BATAFSIL NATIJALAR =====\n\n';
+  let test;
+  if (currentSubject === 'katta-test') {
+    test = testData['katta-test'];
+  } else {
+    test = testData[currentClass]?.[currentSubject];
+  }
+  
+  if (!test) return;
+  
+  let details = '═══════════════════════════════\n';
+  details += '     BATAFSIL NATIJALAR\n';
+  details += '═══════════════════════════════\n\n';
   
   test.questions.forEach((question, index) => {
     const userAnswer = userAnswers[index];
     const isCorrect = userAnswer === question.correct;
     
-    details += `Savol ${index + 1}: ${question.question}\n`;
-    details += `Sizning javobingiz: ${userAnswer !== undefined ? question.answers[userAnswer] : 'Javob berilmagan'}\n`;
-    details += `To'g'ri javob: ${question.answers[question.correct]}\n`;
-    details += `Natija: ${isCorrect ? '✅ To\'g\'ri' : '❌ Xato'}\n`;
-    details += '--------------------------------\n\n';
+    details += `📌 Savol ${index + 1}: ${question.question}\n`;
+    details += `   Sizning javobingiz: ${userAnswer !== undefined ? question.answers[userAnswer] : 'Javob berilmagan'}\n`;
+    details += `   To'g'ri javob: ${question.answers[question.correct]}\n`;
+    details += `   Natija: ${isCorrect ? '✅ TO\'G\'RI' : '❌ XATO'}\n`;
+    details += '───────────────────────────────────\n';
   });
   
   alert(details);
