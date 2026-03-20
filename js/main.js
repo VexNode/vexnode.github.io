@@ -23,118 +23,277 @@ if (toggleButton) {
 }
 
 // ============================================
-// DARS JADVALI FUNKSIYALARI
+// DARS JADVALI - TELEGRAM BOTDAGI JADVALLAR
 // ============================================
 
-// Barcha sinflar uchun dars jadvallari
-const classSchedules = {
+// Har bir sinf va kun uchun dars jadvallari (Telegram botdagi ma'lumotlar asosida)
+const schedules = {
+  // 5-sinf
   5: [
-    { day: "Dushanba", lessons: ["Ona tili", "Matematika", "Fizika", "Tarix", "Texnologiya"] },
-    { day: "Seshanba", lessons: ["Ingliz tili", "Kimyo", "Matematika", "Adabiyot", "Jismoniy tarbiya"] },
-    { day: "Chorshanba", lessons: ["Biologiya", "Ona tili", "Informatika", "Tarix", "Ingliz tili"] },
-    { day: "Payshanba", lessons: ["Matematika", "Fizika", "Adabiyot", "Geografiya", "Texnologiya"] },
-    { day: "Juma", lessons: ["Ona tili", "Ingliz tili", "Matematika", "Kimyo", "Jismoniy tarbiya"] }
+    { day: "Dushanba", lessons: ["Kelajak soati", "Adabiyot", "Jismoniy tarbiya", "Ona tili", "Matematika"] },
+    { day: "Seshanba", lessons: ["Tabiy fan", "Tarixdan hikoyalar", "Informatika", "Tasviriy san`at", "Matematika", "Ingiliz tili", "Fransuz tili"] },
+    { day: "Chorshanba", lessons: ["Musiqa", "Matematika", "Ona tili", "Fransuz tili", "Ingiliz tili"] },
+    { day: "Payshanba", lessons: ["Tarixdan hikoyalar", "Ona tili", "Adabiyot", "Texnalogiya", "Texnalogiya", "Fransuz tili", "Ingiliz tili"] },
+    { day: "Juma", lessons: ["Jismoniy Tarbiya", "Ona tili", "Tabiy fan", "Rus tili(n)", "Matematika"] },
+    { day: "Shanba", lessons: ["Rus tili", "Fransuz tili", "Ingliz tili", "Matematika", "Tarbiya"] }
   ],
-  6: [
-    { day: "Dushanba", lessons: ["Ona tili", "Biologiya", "Fizika", "Matematika", "Adabiyot"] },
-    { day: "Seshanba", lessons: ["Geografiya", "Kimyo", "Matematika", "Informatika", "Ona tili"] },
-    { day: "Chorshanba", lessons: ["Ingliz tili", "Tarix", "Fizika", "Adabiyot", "Jismoniy tarbiya"] },
-    { day: "Payshanba", lessons: ["Matematika", "Ona tili", "Biologiya", "Ingliz tili", "Texnologiya"] },
-    { day: "Juma", lessons: ["Kimyo", "Tarix", "Matematika", "Geografiya", "Informatika"] }
+  
+  // 6-A sinf
+  '6a': [
+    { day: "Dushanba", lessons: ["Kelajak soati", "Fransuz tili", "Matematika", "Tabiy fan", "Ona tili", "Fransuz tili"] },
+    { day: "Seshanba", lessons: ["Fransuz tili", "Musiqa", "Matematika", "Tabiy fan", "Tasviriy san`at", "Tarix"] },
+    { day: "Chorshanba", lessons: ["Ona tili", "Rus tili", "Adabiyot", "Matematika"] },
+    { day: "Payshanba", lessons: ["Fransuz tili", "Texnalogiya", "Texnalogiya", "Rus tili", "Jismoniy tarbiya"] },
+    { day: "Juma", lessons: ["Adabiyot", "Jismoniy tarbiya", "Ona tili", "Matematika", "Tabiy fan"] },
+    { day: "Shanba", lessons: ["Tarix", "Informatika", "Ona tili", "Matematika", "Tarbiya"] }
   ],
-  7: [
-    { day: "Dushanba", lessons: ["Matematika", "Fizika", "Informatika", "Tarix", "Kimyo"] },
-    { day: "Seshanba", lessons: ["Ingliz tili", "Adabiyot", "Matematika", "Jismoniy tarbiya", "Texnologiya"] },
-    { day: "Chorshanba", lessons: ["Ona tili", "Biologiya", "Fizika", "Ingliz tili", "Geografiya"] },
-    { day: "Payshanba", lessons: ["Kimyo", "Matematika", "Adabiyot", "Tarix", "Informatika"] },
-    { day: "Juma", lessons: ["Fizika", "Ona tili", "Biologiya", "Jismoniy tarbiya", "Ingliz tili"] }
+  
+  // 6-B sinf
+  '6b': [
+    { day: "Dushanba", lessons: ["Kelajak soati", "Jismoniy tarbiya", "Ona tili", "Matematika", "Texnalogiya", "Texnalogiya"] },
+    { day: "Seshanba", lessons: ["Tasviriy san`at", "Tarbiya", "Tabiy fan", "Matematika", "Fransuz tili"] },
+    { day: "Chorshanba", lessons: ["Fransuz tili", "Musiqa", "Rus tili", "Ona tili", "Matematika", "Adabiyot"] },
+    { day: "Payshanba", lessons: ["Adabiyot", "Jisminiy tarbiya", "Fransuz tili", "Ona tili", "Tabiy fan"] },
+    { day: "Juma", lessons: ["Tabiy fan", "Tarix", "Matematika", "Ona tili"] },
+    { day: "Shanba", lessons: ["Fransuz tili", "Matematika", "Informatika", "Tarix", "Rus tili"] }
   ],
-  8: [
-    { day: "Dushanba", lessons: ["Ona tili", "Matematika", "Kimyo", "Fizika", "Informatika"] },
-    { day: "Seshanba", lessons: ["Adabiyot", "Tarix", "Biologiya", "Geografiya", "Ingliz tili"] },
-    { day: "Chorshanba", lessons: ["Matematika", "Fizika", "Ona tili", "Kimyo", "Jismoniy tarbiya"] },
-    { day: "Payshanba", lessons: ["Ingliz tili", "Adabiyot", "Tarix", "Biologiya", "Texnologiya"] },
-    { day: "Juma", lessons: ["Informatika", "Geografiya", "Matematika", "Fizika", "Ona tili"] }
+  
+  // 7-A sinf
+  '7a': [
+    { day: "Dushanba", lessons: ["Kelajak soati", "Geografiya", "Jismoniy tarbiya", "Fransuz tili", "Matematika", "Fizika"] },
+    { day: "Seshanba", lessons: ["Matematika", "Fizika", "Tasviriy san`at", "Kimyo", "Fransuz tili", "Matematika"] },
+    { day: "Chorshanba", lessons: ["Matematika", "Informatika", "Musiqa", "Fransuz tili", "O`zbekiston tarixi", "Jismoniy tarbiya"] },
+    { day: "Payshanba", lessons: ["Ona tili", "Biyologiya", "Fransuz tili", "Adabiyot", "Kimyo", "Geografiya"] },
+    { day: "Juma", lessons: ["O`zbekiston tarixi", "Rus tili", "Matematika", "Ona tili", "Texnalogiya", "Texnalogiya"] },
+    { day: "Shanba", lessons: ["Adabiyot", "Tarbiya", "Jaxon tarixi", "Ona tili", "Rus tili", "Biologiya"] }
   ],
-  9: [
-    { day: "Dushanba", lessons: ["Fizika", "Matematika", "Ona tili", "Tarix", "Kimyo"] },
-    { day: "Seshanba", lessons: ["Informatika", "Adabiyot", "Geografiya", "Biologiya", "Jismoniy tarbiya"] },
-    { day: "Chorshanba", lessons: ["Matematika", "Fizika", "Ingliz tili", "Kimyo", "Tarix"] },
-    { day: "Payshanba", lessons: ["Ona tili", "Biologiya", "Adabiyot", "Informatika", "Geografiya"] },
-    { day: "Juma", lessons: ["Kimyo", "Matematika", "Fizika", "Ingliz tili", "Jismoniy tarbiya"] }
+  
+  // 7-B sinf
+  '7b': [
+    { day: "Dushanba", lessons: ["Kelajak soati", "Informatika", "Fransuz tili", "Fizika", "Geografiya", "Matematika"] },
+    { day: "Seshanba", lessons: ["Fransuz tili", "Tasviriy san`at", "O`zbekiston tarixi", "Texnalogiya", "Texnalogiya", "Matematika"] },
+    { day: "Chorshanba", lessons: ["Matematika", "Jismoniy tarbiya", "Tarbiya", "O`zbekiston tarixi", "Musiqa", "Fransuz tili"] },
+    { day: "Payshanba", lessons: ["Fransuz tili", "Kimyo", "Adabiyot", "Geografiya", "Ona tili", "Jismoniy tarbiya"] },
+    { day: "Juma", lessons: ["Matematika", "Ona tili", "Rus tili", "Fizika", "Biologiya", "Jahon tarixi"] },
+    { day: "Shanba", lessons: ["Matematika", "Adabiyot", "Biologiya", "Rus tili", "Ona tili", "Kimyo"] }
   ],
-  10: [
-    { day: "Dushanba", lessons: ["Fizika", "Matematika", "Kimyo", "Tarix", "Informatika"] },
-    { day: "Seshanba", lessons: ["Adabiyot", "Ona tili", "Biologiya", "Geografiya", "Ingliz tili"] },
-    { day: "Chorshanba", lessons: ["Matematika", "Fizika", "Ingliz tili", "Kimyo", "Tarix"] },
-    { day: "Payshanba", lessons: ["Ona tili", "Biologiya", "Adabiyot", "Informatika", "Jismoniy tarbiya"] },
-    { day: "Juma", lessons: ["Kimyo", "Geografiya", "Fizika", "Matematika", "Ingliz tili"] }
+  
+  // 8-A sinf
+  '8a': [
+    { day: "Dushanba", lessons: ["Kelajak soati", "Adabiyot", "Geografiya", "Jismoniy tarbiya", "Chizmachilika", "Fransuz tili"] },
+    { day: "Seshanba", lessons: ["Texnalogiya", "Jismoniy tarbiya", "O'zbekiston tarixi", "Fizika", "Biologiya", "Fransuz tili"] },
+    { day: "Chorshanba", lessons: ["Ona tili", "Rus tili", "Huquq", "Algebra", "Ona tili", "Geometriya"] },
+    { day: "Payshanba", lessons: ["Ona tili", "Uz tarix", "Rus tili", "Kimyo", "Fransuz tili", "Jahon tarixi"] },
+    { day: "Juma", lessons: ["Adabiyot", "Iqtisodiyot", "Biologiya", "Algebra", "Geometriya"] },
+    { day: "Shanba", lessons: ["Tarbiya", "Kimyo", "Fizika", "Informatika", "Algebra"] }
   ],
-  11: [
-    { day: "Dushanba", lessons: ["Ona tili", "Matematika", "Fizika", "Ingliz tili", "Tarix"] },
-    { day: "Seshanba", lessons: ["Kimyo", "Adabiyot", "Informatika", "Geografiya", "Biologiya"] },
-    { day: "Chorshanba", lessons: ["Matematika", "Fizika", "Ingliz tili", "Kimyo", "Tarix"] },
-    { day: "Payshanba", lessons: ["Ona tili", "Biologiya", "Adabiyot", "Informatika", "Jismoniy tarbiya"] },
-    { day: "Juma", lessons: ["Kimyo", "Geografiya", "Fizika", "Matematika", "Ingliz tili"] }
+  
+  // 8-B sinf
+  '8b': [
+    { day: "Dushanba", lessons: ["Kelajak soati", "Chizmachilik", "Ona tili", "Algebra", "Jismoniy tarbiya", "Adabiyot"] },
+    { day: "Seshanba", lessons: ["Algebra", "Informatika", "Biyologiya", "Fransuz tili", "Fizika"] },
+    { day: "Chorshanba", lessons: ["Tarbiya", "Jahon Tarix", "Rus tili", "Ona tili", "Fransuz tili", "Algebra"] },
+    { day: "Payshanba", lessons: ["Geografiya", "Fransuz tili", "Rus tili", "Jismoniy tarbiya", "Ona tili", "Kimyo"] },
+    { day: "Juma", lessons: ["Texnalogiya", "Geografiya", "O`zbekiston tarixi", "Geometriya", "Adabiyot", "Fizika"] },
+    { day: "Shanba", lessons: ["Geometriya", "Huquq", "Kimyo", "Biologiya", "O`zbekiston tarixi"] }
+  ],
+  
+  // 9-A sinf
+  '9a': [
+    { day: "Dushanba", lessons: ["Kelajak soati", "Adabiyot", "Fransuz tili", "Chizmachilik", "Ona tili", "Informatika"] },
+    { day: "Seshanba", lessons: ["O`zbekiston tarixi", "Geografiya", "Fizika", "Algebra", "Geometriya", "Jismniy tarbiya"] },
+    { day: "Chorshanba", lessons: ["Jismoniy tarbiya", "Geometriya", "Algebra", "Informatika", "Fransuz tili", "Tarbiya"] },
+    { day: "Payshanba", lessons: ["Texnalogiya", "Ona tili", "Kimyo", "Fransuz tili", "Jahon tarixi", "Adabiyot"] },
+    { day: "Juma", lessons: ["Biologiya", "Fizika", "Ona tili", "Rus tili", "O`zbekiston tarixi", "Geografiya"] },
+    { day: "Shanba", lessons: ["Biologiya", "Rus tili", "Huquq", "Algebra", "Kimyo"] }
+  ],
+  
+  // 9-B sinf
+  '9b': [
+    { day: "Dushanba", lessons: ["Kelajak soati", "Algebra", "Chizmachilik", "Ona tili", "Adabiyot", "Kimyo"] },
+    { day: "Seshanba", lessons: ["Fizika", "Geometriya", "Algebra", "Jismoniy tarbiya", "O`zbekiston tarixi", "Fransuz tili"] },
+    { day: "Chorshanba", lessons: ["Informatika", "Adabiyot", "Fransuz tili", "Jismoniy tarbiya", "Geometriya", "Huquq"] },
+    { day: "Payshanba", lessons: ["Kimyo", "Fransuz tili", "Geografiya", "Jahon tarixi", "Biologiya", "Rus tili"] },
+    { day: "Juma", lessons: ["Ona tili", "Texnalogiya", "Informatika", "O`zbekiston tarixi", "Tarbiya", "Iqtisodiyot"] },
+    { day: "Shanba", lessons: ["Fizika", "Algebra", "Ona tili", "Rus tili", "Biologiya"] }
+  ],
+  
+  // 10-A sinf
+  '10a': [
+    { day: "Dushanba", lessons: ["Kelajak soati", "Fizika", "Algebra", "Geometriya", "Informatika"] },
+    { day: "Seshanba", lessons: ["Biologiya", "Fransuz tili", "Kimyo", "Huquq", "Geografiya"] },
+    { day: "Chorshanba", lessons: ["Rus tili", "Fransuz tili", "ChYoT", "Jismoniy tarbiya", "Tarbiya", "Ona tili"] },
+    { day: "Payshanba", lessons: ["Biologiya", "Geografiya", "O`zbekiston tarixi", "Adabiyot", "ChYoT"] },
+    { day: "Juma", lessons: ["Ona tili", "Algebra", "Jahon tarixi", "Jismoniy tarbiya", "Adabiyot", "Rus tili"] }
   ]
 };
 
-// Jadvalni ko'rsatish funksiyasi
-function showSchedule(classNumber) {
-  // Barcha tugmalardan active classni olib tashlash
-  const allButtons = document.querySelectorAll('.class-btn');
-  allButtons.forEach(btn => btn.classList.remove('active'));
+// Fanlarning kalitlarini olish (rang berish uchun)
+function getLessonKey(lesson) {
+  const lessonKeys = {
+    'Matematika': 'matematika',
+    'Algebra': 'matematika',
+    'Geometriya': 'matematika',
+    'Ona tili': 'ona-tili',
+    'Adabiyot': 'adabiyot',
+    'Ingliz tili': 'ingliz-tili',
+    'Ingiliz tili': 'ingliz-tili',
+    'Fransuz tili': 'ingliz-tili',
+    'Rus tili': 'ingliz-tili',
+    'Fizika': 'fizika',
+    'Kimyo': 'kimyo',
+    'Biologiya': 'biologiya',
+    'Biyologiya': 'biologiya',
+    'Tarix': 'tarix',
+    'O`zbekiston tarixi': 'tarix',
+    'Jahon tarixi': 'tarix',
+    'Jaxon tarixi': 'tarix',
+    'Geografiya': 'geografiya',
+    'Informatika': 'informatika',
+    'Texnalogiya': 'texnologiya',
+    'Chizmachilik': 'texnologiya',
+    'Jismoniy tarbiya': 'jismoniy-tarbiya',
+    'Jismniy tarbiya': 'jismoniy-tarbiya',
+    'Jismoniy Tarbiya': 'jismoniy-tarbiya',
+    'Musiqa': 'sanat',
+    'Tasviriy san`at': 'sanat',
+    'Tarbiya': 'tarbiya',
+    'Huquq': 'huquq',
+    'Iqtisodiyot': 'iqtisod',
+    'Kelajak soati': 'kelajak',
+    'Tabiy fan': 'tabiiy',
+    'Tarixdan hikoyalar': 'tarix',
+    'ChYoT': 'chyot'
+  };
+  return lessonKeys[lesson] || '';
+}
+
+// Sinfni tanlash va jadvalni ko'rsatish
+function showSchedule(classType) {
+  // Tugmalardan active classni olib tashlash
+  document.querySelectorAll('.class-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
   
   // Tanlangan tugmaga active class qo'shish
-  const selectedButton = document.querySelector(`.class-btn[data-class="${classNumber}"]`);
-  if (selectedButton) {
-    selectedButton.classList.add('active');
+  const activeBtn = document.querySelector(`.class-btn[data-class="${classType}"]`);
+  if (activeBtn) {
+    activeBtn.classList.add('active');
   }
   
   // Jadval ma'lumotlarini olish
-  const scheduleData = classSchedules[classNumber];
+  const scheduleData = schedules[classType];
   const container = document.getElementById('schedule-container');
   
-  if (!scheduleData) {
-    container.innerHTML = '<p class="error-message">Jadval topilmadi</p>';
+  if (!scheduleData || scheduleData.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-icon">📚</div>
+        <h3>Jadval topilmadi</h3>
+        <p>Kechirasiz, bu sinf uchun jadval hozircha mavjud emas</p>
+      </div>
+    `;
     return;
   }
   
-  // Jadval HTML ni yaratish
-  let tableHTML = `
-    <table class="schedule-table">
-      <thead>
-        <tr>
-          <th>Kun</th>
-          <th>1-dars</th>
-          <th>2-dars</th>
-          <th>3-dars</th>
-          <th>4-dars</th>
-          <th>5-dars</th>
-        </tr>
-      </thead>
-      <tbody>
-  `;
-  
-  // Har bir kun uchun qator yaratish
-  scheduleData.forEach(daySchedule => {
-    tableHTML += '<tr>';
-    tableHTML += `<td>${daySchedule.day}</td>`;
-    
-    daySchedule.lessons.forEach(lesson => {
-      tableHTML += `<td>${lesson}</td>`;
-    });
-    
-    tableHTML += '</tr>';
+  // Maksimal dars sonini aniqlash (eng ko'p dars bo'lgan kun)
+  let maxLessons = 0;
+  scheduleData.forEach(day => {
+    if (day.lessons.length > maxLessons) {
+      maxLessons = day.lessons.length;
+    }
   });
   
-  tableHTML += '</tbody></table>';
+  // Jadval sarlavhalarini yaratish (1-dars, 2-dars, ...)
+  let headersHtml = '<th>Kun</th>';
+  for (let i = 1; i <= maxLessons; i++) {
+    headersHtml += `<th>${i}-dars</th>`;
+  }
   
-  // Jadvalni ko'rsatish
+  // Jadval qatorlarini yaratish
+  let rowsHtml = '';
+  scheduleData.forEach(day => {
+    rowsHtml += '<tr>';
+    rowsHtml += `<td class="day-cell">${day.day}</td>`;
+    
+    // Darslarni qo'shish
+    for (let i = 0; i < maxLessons; i++) {
+      const lesson = day.lessons[i] || '—';
+      const lessonKey = getLessonKey(lesson);
+      rowsHtml += `<td data-lesson="${lessonKey}">${lesson}</td>`;
+    }
+    
+    rowsHtml += '</tr>';
+  });
+  
+  // To'liq jadval HTML
+  const tableHTML = `
+    <div style="overflow-x: auto;">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            ${headersHtml}
+          </tr>
+        </thead>
+        <tbody>
+          ${rowsHtml}
+        </tbody>
+      </table>
+    </div>
+  `;
+  
   container.innerHTML = tableHTML;
   
-  // Smooth scroll (agar kerak bo'lsa)
+  // Smooth scroll
   container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+// Qidiruv funksiyasi
+const searchInput = document.getElementById('search-input');
+if (searchInput) {
+  searchInput.addEventListener('input', (e) => {
+    const filter = e.target.value.toLowerCase();
+    
+    const searchElements = document.querySelectorAll('.news-card, .project-card, .about p, .contact-info li, .schedule-table td');
+    
+    searchElements.forEach(element => {
+      const textContent = element.textContent.toLowerCase();
+      if (textContent.includes(filter)) {
+        element.style.display = "";
+      } else {
+        element.style.display = "none";
+      }
+    });
+    
+    const tableRows = document.querySelectorAll('.schedule-table tbody tr');
+    tableRows.forEach(row => {
+      const rowText = row.textContent.toLowerCase();
+      if (filter === '' || rowText.includes(filter)) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  });
+}
+
+// Dark mode funksiyasi
+const toggleButton = document.getElementById('dark-mode-toggle');
+if (toggleButton) {
+  const applyTheme = () => {
+    const isDark = localStorage.getItem('theme') === 'dark';
+    document.body.classList.toggle('dark', isDark);
+    toggleButton.textContent = isDark ? '☀️' : '🌙';
+  };
+  
+  applyTheme();
+  
+  toggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const isDark = document.body.classList.contains('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    toggleButton.textContent = isDark ? '☀️' : '🌙';
+  });
 }
 
 // Sahifa yuklanganda 5-sinf jadvalini ko'rsatish
@@ -146,7 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // 5-sinf jadvalini yuklash
-  showSchedule(5);
+  showSchedule('5');
 });
 
 // Boshlang‘ich jadval
