@@ -1,0 +1,28 @@
+{
+  "5-sinf": {
+    "matematika": {
+      "title": "5-sinf Matematika",
+      "time": 20,
+      "questions": [
+        { "question": "Natural sonni toping:", "answers": ["0", "1", "-5", "0.5"], "correct": 1 },
+        { "question": "Kvadratning yuzi 16 bo'lsa, tomoni?", "answers": ["2", "4", "8", "6"], "correct": 1 }
+      ]
+    },
+    "ona-tili": {
+      "title": "5-sinf Ona tili",
+      "time": 15,
+      "questions": [
+        { "question": "Unli harflar nechta?", "answers": ["6", "10", "12", "8"], "correct": 0 }
+      ]
+    }
+  },
+  "11-sinf": {
+    "matematika": {
+      "title": "11-sinf Algebra",
+      "time": 30,
+      "questions": [
+        { "question": "log2(8) nimaga teng?", "answers": ["2", "3", "4", "1"], "correct": 1 }
+      ]
+    }
+  }
+}

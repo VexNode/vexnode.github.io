@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yangiliklar | 41-Maktab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo">
+        <img src="images/logo.png" alt="41-maktab logotipi" width="50" height="50"> <!-- width/height qo'shildi -->
+        <div class="brand">
+          <h1>41-Maktab</h1>
+          <p>Bilim – kelajak kaliti</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Bosh sahifa</a></li>
+          <li><a href="yangiliklar.html" class="active" aria-current="page">Yangiliklar</a></li>
+          <li><a href="loyihalar.html">Loyihalar</a></li>
+          <li><a href="testlar.html">Testlar</a></li>
+          <li><a href="aloqa.html">Aloqa</a></li>
+        </ul>
+      </nav>
+
+      <!-- 🔍 Qidiruv va 🌙 Dark Mode tugmalari (boshqa sahifalar bilan izchillik uchun qo'shildi) -->
+      <div class="nav-tools">
+        <input type="text" id="search-input" placeholder="Qidiruv..." class="search-box" aria-label="Sayt bo'yicha qidiruv">
+        <button id="dark-mode-toggle" class="dark-btn" aria-label="Qorong'u rejimni yoqish/o'chirish">🌙</button>
+      </div>
+    </div>
+  </header>
+
+<!-- PAGE TITLE -->
+<section class="page-title news-title">
+  <div class="container">
+    <h1>📢 Yangiliklar</h1>
+    <p>41-maktabdagi so'nggi yangiliklar, tadbirlar va e'lonlar</p>
+  </div>
+  <div class="floating-element"></div>
+</section>
+
+    <!-- NEWS SECTION -->
+    <section class="news">
+      <div class="container news-grid">
+
+        <!-- Yangilik 1 -->
+        <article class="news-card"> <!-- article tegi ishlatildi -->
+          <img src="images/news1.jpg" alt="O'quvchilar kitob o'qish tadbirida" width="300" height="200"> <!-- width/height qo'shildi, alt text aniqlashtirildi -->
+          <div class="news-body">
+            <h3>“O‘qish haftaligi” boshlandi</h3>
+            <p>41-maktabda o‘quvchilar uchun o‘qish haftaligi boshlandi. Unda eng ko‘p kitob o‘qigan sinfga sovg‘alar beriladi.</p>
+            <time datetime="2025-10-10">📅 10-oktabr, 2025</time> <!-- time tegi va datetime atributi qo'shildi -->
+            <!-- Agar har bir yangilikning alohida sahifasi bo'lsa, bu yerga link qo'shish mumkin: -->
+            <!-- <a href="news-detail-1.html" class="read-more-btn">Batafsil</a> -->
+          </div>
+        </article>
+
+        <!-- Yangilik 2 -->
+        <article class="news-card"> <!-- article tegi ishlatildi -->
+          <img src="images/news2.jpg" alt="Sport musobaqasida g'olib jamoa" width="300" height="200"> <!-- width/height qo'shildi, alt text aniqlashtirildi -->
+          <div class="news-body">
+            <h3>Sport musobaqasi yakunlandi</h3>
+            <p>Bag‘dod tumani bo‘yicha o‘tkazilgan sport musobaqasida 41-maktab jamoasi faxrli 1-o‘rinni egalladi.</p>
+            <time datetime="2025-10-07">📅 7-oktabr, 2025</time> <!-- time tegi va datetime atributi qo'shildi -->
+            <!-- <a href="news-detail-2.html" class="read-more-btn">Batafsil</a> -->
+          </div>
+        </article>
+
+        <!-- Yangilik 3 -->
+        <article class="news-card"> <!-- article tegi ishlatildi -->
+          <img src="images/news3.jpg" alt="Yangi kompyuter sinfida o'quvchilar" width="300" height="200"> <!-- width/height qo'shildi, alt text aniqlashtirildi -->
+          <div class="news-body">
+            <h3>Yangi kompyuter sinfi ishga tushdi</h3>
+            <p>Maktabimizda zamonaviy kompyuterlar bilan jihozlangan yangi IT sinf ochildi.</p>
+            <time datetime="2025-10-02">📅 2-oktabr, 2025</time> <!-- time tegi va datetime atributi qo'shildi -->
+            <!-- <a href="news-detail-3.html" class="read-more-btn">Batafsil</a> -->
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main> <!-- MAIN tugashi -->
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2025 41-Maktab. Barcha huquqlar himoyalangan.</p>
+      <address> <!-- <address> tegi ishlatildi -->
+        <p>👨‍💼 Direktor: Ziyayeva Ozodaxon</p>
+        <p>👨‍💻 Admin: Latifjonov Jalolmirzo</p>
+      </address>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
