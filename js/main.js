@@ -1,27 +1,3 @@
-// ====================================================================
-// 🌙 DARK MODE
-// ====================================================================
-const toggleButton = document.getElementById('dark-mode-toggle');
-
-if (toggleButton) {
-  
-  // Mavzuni qo'llash funksiyasi
-  const applyTheme = () => {
-    const isDark = localStorage.getItem('theme') === 'dark';
-    document.body.classList.toggle('dark', isDark);
-    toggleButton.textContent = isDark ? '☀️' : '🌙';
-  };
-  
-  applyTheme(); // Sahifa yuklanganda mavzuni qo'llash
-
-  toggleButton.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const isDark = document.body.classList.contains('dark');
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-    toggleButton.textContent = isDark ? '☀️' : '🌙';
-  });
-}
-
 // ============================================
 // DARS JADVALI - TELEGRAM BOTDAGI JADVALLAR
 // ============================================
@@ -140,6 +116,7 @@ function getLessonKey(lesson) {
     'Ingiliz tili': 'ingliz-tili',
     'Fransuz tili': 'ingliz-tili',
     'Rus tili': 'ingliz-tili',
+    'Rus tili(n)': 'ingliz-tili',
     'Fizika': 'fizika',
     'Kimyo': 'kimyo',
     'Biologiya': 'biologiya',
@@ -148,13 +125,16 @@ function getLessonKey(lesson) {
     'O`zbekiston tarixi': 'tarix',
     'Jahon tarixi': 'tarix',
     'Jaxon tarixi': 'tarix',
+    'Uz tarix': 'tarix',
     'Geografiya': 'geografiya',
     'Informatika': 'informatika',
     'Texnalogiya': 'texnologiya',
     'Chizmachilik': 'texnologiya',
+    'Chizmachilika': 'texnologiya',
     'Jismoniy tarbiya': 'jismoniy-tarbiya',
     'Jismniy tarbiya': 'jismoniy-tarbiya',
     'Jismoniy Tarbiya': 'jismoniy-tarbiya',
+    'Jisminiy tarbiya': 'jismoniy-tarbiya',
     'Musiqa': 'sanat',
     'Tasviriy san`at': 'sanat',
     'Tarbiya': 'tarbiya',
@@ -248,23 +228,64 @@ function showSchedule(classType) {
   container.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// Qidiruv funksiyasi
+// ============================================
+// QIDIRUV FUNKSIYASI
+// ============================================
+
 const searchInput = document.getElementById('search-input');
 if (searchInput) {
   searchInput.addEventListener('input', (e) => {
-    const filter = e.target.value.toLowerCase();
+    const filter = e.target.value.toLowerCase().trim();
     
-    const searchElements = document.querySelectorAll('.news-card, .project-card, .about p, .contact-info li, .schedule-table td');
+    // Qidiriladigan elementlar
+    const newsCards = document.querySelectorAll('.news-card');
+    const projectCards = document.querySelectorAll('.project-card');
+    const aboutText = document.querySelectorAll('.about p');
+    const contactInfo = document.querySelectorAll('.contact-info li');
+    const scheduleCells = document.querySelectorAll('.schedule-table td');
     
-    searchElements.forEach(element => {
-      const textContent = element.textContent.toLowerCase();
-      if (textContent.includes(filter)) {
-        element.style.display = "";
+    // Yangiliklar kartalarini qidirish
+    newsCards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      if (filter === '' || text.includes(filter)) {
+        card.style.display = '';
       } else {
-        element.style.display = "none";
+        card.style.display = 'none';
       }
     });
     
+    // Loyihalar kartalarini qidirish
+    projectCards.forEach(card => {
+      const text = card.textContent.toLowerCase();
+      if (filter === '' || text.includes(filter)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    
+    // About matnini qidirish
+    aboutText.forEach(text => {
+      const parent = text.parentElement;
+      const content = text.textContent.toLowerCase();
+      if (filter === '' || content.includes(filter)) {
+        if (parent) parent.style.display = '';
+      } else {
+        if (parent) parent.style.display = 'none';
+      }
+    });
+    
+    // Kontakt ma'lumotlarini qidirish
+    contactInfo.forEach(info => {
+      const text = info.textContent.toLowerCase();
+      if (filter === '' || text.includes(filter)) {
+        info.style.display = '';
+      } else {
+        info.style.display = 'none';
+      }
+    });
+    
+    // Jadval qatorlarini qidirish
     const tableRows = document.querySelectorAll('.schedule-table tbody tr');
     tableRows.forEach(row => {
       const rowText = row.textContent.toLowerCase();
@@ -277,17 +298,21 @@ if (searchInput) {
   });
 }
 
-// Dark mode funksiyasi
+// ============================================
+// DARK MODE FUNKSIYASI
+// ============================================
+
 const toggleButton = document.getElementById('dark-mode-toggle');
 if (toggleButton) {
+  // Mavzuni qo'llash funksiyasi
   const applyTheme = () => {
     const isDark = localStorage.getItem('theme') === 'dark';
     document.body.classList.toggle('dark', isDark);
     toggleButton.textContent = isDark ? '☀️' : '🌙';
   };
   
-  applyTheme();
-  
+  applyTheme(); // Sahifa yuklanganda mavzuni qo'llash
+
   toggleButton.addEventListener('click', () => {
     document.body.classList.toggle('dark');
     const isDark = document.body.classList.contains('dark');
@@ -296,7 +321,10 @@ if (toggleButton) {
   });
 }
 
-// Sahifa yuklanganda 5-sinf jadvalini ko'rsatish
+// ============================================
+// SAHIFA YUKLANGANDA
+// ============================================
+
 document.addEventListener('DOMContentLoaded', function() {
   // 5-sinf tugmasiga active class qo'shish
   const defaultButton = document.querySelector('.class-btn[data-class="5"]');
@@ -307,43 +335,3 @@ document.addEventListener('DOMContentLoaded', function() {
   // 5-sinf jadvalini yuklash
   showSchedule('5');
 });
-
-// Boshlang‘ich jadval
-renderTable(selectClass.value);
-
-// Sinf tanlanganda jadvalni yangilash
-selectClass.addEventListener('change', e => renderTable(e.target.value));
-
-// QIDIRUV FUNKSIYASI (To'liq qidiruv)
-const searchInput = document.getElementById('search-input');
-
-if (searchInput) {
-  searchInput.addEventListener('input', (e) => {
-    const filter = e.target.value.toLowerCase();
-    
-    // Saytdagi qidirilishi kerak bo'lgan barcha elementlarni tanlang
-    const searchElements = document.querySelectorAll('.news-card, .project-card, .lesson-table tr, .about p, .contact-info li'); 
-
-    searchElements.forEach(element => {
-      const textContent = element.textContent.toLowerCase();
-      
-      if (textContent.includes(filter)) {
-        element.style.display = ""; // Agar matn qidiruv so'ziga mos kelsa, ko'rsat
-      } else {
-        element.style.display = "none"; // Aks holda yashir
-      }
-    });
-    
-    // Jadval qatorlari uchun alohida logika
-    const tableRows = document.querySelectorAll('.lesson-table tbody tr');
-    tableRows.forEach(row => {
-      const rowText = row.textContent.toLowerCase();
-      if (filter === '' || rowText.includes(filter)) {
-        row.style.display = '';
-      } else {
-        row.style.display = 'none';
-      }
-    });
-  });
-}
-
