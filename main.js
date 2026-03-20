@@ -29,8 +29,8 @@ if (toggleButton) {
 // Barcha sinflar uchun dars jadvallari
 const classSchedules = {
   5: [
-    { day: "Dushanba", lessons: ["Ona tili", "Matematika", "Fizika", "Tarix", "Texnologiya"] },
-    { day: "Seshanba", lessons: ["Ingliz tili", "Kimyo", "Matematika", "Adabiyot", "Jismoniy tarbiya"] },
+    { day: "Dushanba", lessons: ["Kelajak soati", "Adabiyot", "Jismoniy tarbiya", "Ona tili", "Matematika"] },
+    { day: "Seshanba", lessons: ["Tabiy fan", "Tarixdan hik...", "Inf va IKT", "Ingiliz tili", "Matematika"] },
     { day: "Chorshanba", lessons: ["Biologiya", "Ona tili", "Informatika", "Tarix", "Ingliz tili"] },
     { day: "Payshanba", lessons: ["Matematika", "Fizika", "Adabiyot", "Geografiya", "Texnologiya"] },
     { day: "Juma", lessons: ["Ona tili", "Ingliz tili", "Matematika", "Kimyo", "Jismoniy tarbiya"] }
