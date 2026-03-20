@@ -3068,3 +3068,8 @@ body.dark .answer-option:hover {
 .rounded-xl {
   border-radius: var(--border-radius-xl);
 }
+
+/* Kutubxona sahifasi uchun rang */
+.page-title.library-title {
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4, #10b981);
+}
