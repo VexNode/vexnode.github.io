@@ -279,6 +279,332 @@ const testData = {
     }
   },
   
+  // ========== 8-A SINF TESTLARI ==========
+  '8a': {
+    'matematika': {
+      title: '🔢 Matematika (8-sinf)',
+      icon: '🔢',
+      time: 35,
+      questions: [
+        { question: 'x² - 9 = 0 tenglamani yeching', answers: ['±2', '±3', '±4', '±5'], correct: 1 },
+        { question: 'x² - 5x + 6 = 0 ildizlari?', answers: ['2 va 3', '1 va 6', '2 va 4', '3 va 4'], correct: 0 },
+        { question: 'Kvadrat tenglama diskriminanti?', answers: ['D = b² - 4ac', 'D = b² + 4ac', 'D = 4ac - b²', 'D = b - 4ac'], correct: 0 },
+        { question: 'Parabola uchi formulasi?', answers: ['x = -b/2a', 'x = b/2a', 'x = -b/a', 'x = b/a'], correct: 0 },
+        { question: 'Funksiya nima?', answers: ['x va y orasidagi bog\'liqlik', 'sonlar', 'tenglamalar', 'tengsizliklar'], correct: 0 },
+        { question: 'To\'g\'ri proporsionallik formulasi?', answers: ['y = kx', 'y = k/x', 'y = kx + b', 'y = x²'], correct: 0 },
+        { question: 'Teskari proporsionallik?', answers: ['y = kx', 'y = k/x', 'y = kx + b', 'y = x²'], correct: 1 },
+        { question: 'Chiziqli funksiya?', answers: ['y = kx + b', 'y = x²', 'y = k/x', 'y = |x|'], correct: 0 },
+        { question: 'Arifmetik progressiya formulası?', answers: ['a_n = a₁ + (n-1)d', 'a_n = a₁ × qⁿ⁻¹', 'a_n = a₁ + d', 'a_n = a₁ × n'], correct: 0 },
+        { question: 'Geometrik progressiya?', answers: ['a_n = a₁ + (n-1)d', 'a_n = a₁ × qⁿ⁻¹', 'a_n = a₁ + d', 'a_n = a₁ × n'], correct: 1 }
+      ]
+    },
+    'kimyo': {
+      title: '🧪 Kimyo (8-sinf)',
+      icon: '🧪',
+      time: 30,
+      questions: [
+        { question: 'Kislorodning valentligi?', answers: ['I', 'II', 'III', 'IV'], correct: 1 },
+        { question: 'Vodorodning valentligi?', answers: ['I', 'II', 'III', 'IV'], correct: 0 },
+        { question: 'Suv formulasi?', answers: ['H₂O', 'CO₂', 'O₂', 'N₂'], correct: 0 },
+        { question: 'Natriy xlorid formulasi?', answers: ['NaCl', 'KCl', 'CaCl₂', 'MgCl₂'], correct: 0 },
+        { question: 'Kislotalar ta\'mi?', answers: ['shirin', 'achchiq', 'nordon', 'tuzli'], correct: 2 },
+        { question: 'Ishqorlar ta\'mi?', answers: ['shirin', 'achchiq', 'nordon', 'tuzli'], correct: 0 },
+        { question: 'Lakmus kislotada qanday rang?', answers: ['ko\'k', 'qizil', 'sariq', 'yashil'], correct: 1 },
+        { question: 'Fenolftalein ishqorda?', answers: ['rangsiz', 'qizil', 'ko\'k', 'sariq'], correct: 1 },
+        { question: 'Metallar elektr tokini...', answers: ['o\'tkazadi', 'o\'tkazmaydi', 'yomon o\'tkazadi', 'faqat qizdirganda'], correct: 0 },
+        { question: 'Nometallar...', answers: ['o\'tkazadi', 'o\'tkazmaydi', 'yaxshi o\'tkazadi', 'faqat qizdirganda'], correct: 1 }
+      ]
+    },
+    'fizika': {
+      title: '⚛️ Fizika (8-sinf)',
+      icon: '⚛️',
+      time: 30,
+      questions: [
+        { question: 'Elektr toki nima?', answers: ['Zaryadlangan zarrachalarning tartibli harakati', 'Elektronlarning xaotik harakati', 'Atomlarning tebranishi', 'Molekulalarning harakati'], correct: 0 },
+        { question: 'Tok kuchi qanday harf bilan belgilanadi?', answers: ['U', 'I', 'R', 'P'], correct: 1 },
+        { question: 'Kuchlanish formulasi?', answers: ['U = IR', 'I = U/R', 'R = U/I', 'P = UI'], correct: 0 },
+        { question: 'Qarshilik birligi?', answers: ['Amper', 'Volt', 'Om', 'Vatt'], correct: 2 },
+        { question: 'Om qonuni formulasi?', answers: ['I = U/R', 'U = IR', 'R = U/I', 'P = UI'], correct: 0 },
+        { question: 'O\'tkazgichlar ketma-ket ulanganda...', answers: ['I = const', 'U = const', 'R = const', 'P = const'], correct: 0 },
+        { question: 'O\'tkazgichlar parallel ulanganda...', answers: ['I = const', 'U = const', 'R = const', 'P = const'], correct: 1 },
+        { question: 'Quvvat formulasi?', answers: ['P = UI', 'A = UIt', 'I = U/R', 'U = IR'], correct: 0 },
+        { question: 'Ish formulasi?', answers: ['A = UIt', 'P = UI', 'I = U/R', 'U = IR'], correct: 0 },
+        { question: 'Joul-Lens qonuni?', answers: ['Q = I²Rt', 'I = U/R', 'P = UI', 'U = IR'], correct: 0 }
+      ]
+    },
+    'ona-tili': {
+      title: '📖 Ona tili (8-sinf)',
+      icon: '📖',
+      time: 25,
+      questions: [
+        { question: 'Qo\'shma gap necha xil bo\'ladi?', answers: ['2', '3', '4', '5'], correct: 0 },
+        { question: 'Bog\'lovchili qo\'shma gap turlari?', answers: ['2', '3', '4', '5'], correct: 1 },
+        { question: 'Bog\'lovchisiz qo\'shma gap...', answers: ['tobeli', 'ergashgan', 'uyushiq', 'sodda'], correct: 0 },
+        { question: 'Ergashgan gap...', answers: ['bosh gapga bog\'liq', 'mustaqil', 'sodda', 'qo\'shma'], correct: 0 },
+        { question: 'Tobelik...', answers: ['bog\'lanish turi', 'gap turi', 'so\'z turkumi', 'qo\'shimcha'], correct: 0 },
+        { question: 'Egalik qo\'shimchalari nechta?', answers: ['4', '5', '6', '7'], correct: 2 },
+        { question: 'Kelishik qo\'shimchalari nechta?', answers: ['4', '5', '6', '7'], correct: 2 },
+        { question: 'Qaratqich kelishigi qaysi?', answers: ['-ning', '-ni', '-ga', '-da'], correct: 0 },
+        { question: 'Tushum kelishigi qaysi?', answers: ['-ning', '-ni', '-ga', '-da'], correct: 1 },
+        { question: 'Jo\'nalish kelishigi qaysi?', answers: ['-ning', '-ni', '-ga', '-da'], correct: 2 }
+      ]
+    }
+  },
+  
+  // ========== 8-B SINF TESTLARI ==========
+  '8b': {
+    'matematika': {
+      title: '🔢 Matematika (8-sinf)',
+      icon: '🔢',
+      time: 35,
+      questions: [
+        { question: 'x² - 9 = 0 tenglamani yeching', answers: ['±2', '±3', '±4', '±5'], correct: 1 },
+        { question: 'x² - 5x + 6 = 0 ildizlari?', answers: ['2 va 3', '1 va 6', '2 va 4', '3 va 4'], correct: 0 },
+        { question: 'Kvadrat tenglama diskriminanti?', answers: ['D = b² - 4ac', 'D = b² + 4ac', 'D = 4ac - b²', 'D = b - 4ac'], correct: 0 },
+        { question: 'Parabola uchi formulasi?', answers: ['x = -b/2a', 'x = b/2a', 'x = -b/a', 'x = b/a'], correct: 0 },
+        { question: 'Funksiya nima?', answers: ['x va y orasidagi bog\'liqlik', 'sonlar', 'tenglamalar', 'tengsizliklar'], correct: 0 },
+        { question: 'To\'g\'ri proporsionallik formulasi?', answers: ['y = kx', 'y = k/x', 'y = kx + b', 'y = x²'], correct: 0 },
+        { question: 'Teskari proporsionallik?', answers: ['y = kx', 'y = k/x', 'y = kx + b', 'y = x²'], correct: 1 },
+        { question: 'Chiziqli funksiya?', answers: ['y = kx + b', 'y = x²', 'y = k/x', 'y = |x|'], correct: 0 },
+        { question: 'Arifmetik progressiya formulası?', answers: ['a_n = a₁ + (n-1)d', 'a_n = a₁ × qⁿ⁻¹', 'a_n = a₁ + d', 'a_n = a₁ × n'], correct: 0 },
+        { question: 'Geometrik progressiya?', answers: ['a_n = a₁ + (n-1)d', 'a_n = a₁ × qⁿ⁻¹', 'a_n = a₁ + d', 'a_n = a₁ × n'], correct: 1 }
+      ]
+    },
+    'kimyo': {
+      title: '🧪 Kimyo (8-sinf)',
+      icon: '🧪',
+      time: 30,
+      questions: [
+        { question: 'Kislorodning valentligi?', answers: ['I', 'II', 'III', 'IV'], correct: 1 },
+        { question: 'Vodorodning valentligi?', answers: ['I', 'II', 'III', 'IV'], correct: 0 },
+        { question: 'Suv formulasi?', answers: ['H₂O', 'CO₂', 'O₂', 'N₂'], correct: 0 },
+        { question: 'Natriy xlorid formulasi?', answers: ['NaCl', 'KCl', 'CaCl₂', 'MgCl₂'], correct: 0 },
+        { question: 'Kislotalar ta\'mi?', answers: ['shirin', 'achchiq', 'nordon', 'tuzli'], correct: 2 },
+        { question: 'Ishqorlar ta\'mi?', answers: ['shirin', 'achchiq', 'nordon', 'tuzli'], correct: 0 },
+        { question: 'Lakmus kislotada qanday rang?', answers: ['ko\'k', 'qizil', 'sariq', 'yashil'], correct: 1 },
+        { question: 'Fenolftalein ishqorda?', answers: ['rangsiz', 'qizil', 'ko\'k', 'sariq'], correct: 1 },
+        { question: 'Metallar elektr tokini...', answers: ['o\'tkazadi', 'o\'tkazmaydi', 'yomon o\'tkazadi', 'faqat qizdirganda'], correct: 0 },
+        { question: 'Nometallar...', answers: ['o\'tkazadi', 'o\'tkazmaydi', 'yaxshi o\'tkazadi', 'faqat qizdirganda'], correct: 1 }
+      ]
+    },
+    'fizika': {
+      title: '⚛️ Fizika (8-sinf)',
+      icon: '⚛️',
+      time: 30,
+      questions: [
+        { question: 'Elektr toki nima?', answers: ['Zaryadlangan zarrachalarning tartibli harakati', 'Elektronlarning xaotik harakati', 'Atomlarning tebranishi', 'Molekulalarning harakati'], correct: 0 },
+        { question: 'Tok kuchi qanday harf bilan belgilanadi?', answers: ['U', 'I', 'R', 'P'], correct: 1 },
+        { question: 'Kuchlanish formulasi?', answers: ['U = IR', 'I = U/R', 'R = U/I', 'P = UI'], correct: 0 },
+        { question: 'Qarshilik birligi?', answers: ['Amper', 'Volt', 'Om', 'Vatt'], correct: 2 },
+        { question: 'Om qonuni formulasi?', answers: ['I = U/R', 'U = IR', 'R = U/I', 'P = UI'], correct: 0 },
+        { question: 'O\'tkazgichlar ketma-ket ulanganda...', answers: ['I = const', 'U = const', 'R = const', 'P = const'], correct: 0 },
+        { question: 'O\'tkazgichlar parallel ulanganda...', answers: ['I = const', 'U = const', 'R = const', 'P = const'], correct: 1 },
+        { question: 'Quvvat formulasi?', answers: ['P = UI', 'A = UIt', 'I = U/R', 'U = IR'], correct: 0 },
+        { question: 'Ish formulasi?', answers: ['A = UIt', 'P = UI', 'I = U/R', 'U = IR'], correct: 0 },
+        { question: 'Joul-Lens qonuni?', answers: ['Q = I²Rt', 'I = U/R', 'P = UI', 'U = IR'], correct: 0 }
+      ]
+    },
+    'ona-tili': {
+      title: '📖 Ona tili (8-sinf)',
+      icon: '📖',
+      time: 25,
+      questions: [
+        { question: 'Qo\'shma gap necha xil bo\'ladi?', answers: ['2', '3', '4', '5'], correct: 0 },
+        { question: 'Bog\'lovchili qo\'shma gap turlari?', answers: ['2', '3', '4', '5'], correct: 1 },
+        { question: 'Bog\'lovchisiz qo\'shma gap...', answers: ['tobeli', 'ergashgan', 'uyushiq', 'sodda'], correct: 0 },
+        { question: 'Ergashgan gap...', answers: ['bosh gapga bog\'liq', 'mustaqil', 'sodda', 'qo\'shma'], correct: 0 },
+        { question: 'Tobelik...', answers: ['bog\'lanish turi', 'gap turi', 'so\'z turkumi', 'qo\'shimcha'], correct: 0 },
+        { question: 'Egalik qo\'shimchalari nechta?', answers: ['4', '5', '6', '7'], correct: 2 },
+        { question: 'Kelishik qo\'shimchalari nechta?', answers: ['4', '5', '6', '7'], correct: 2 },
+        { question: 'Qaratqich kelishigi qaysi?', answers: ['-ning', '-ni', '-ga', '-da'], correct: 0 },
+        { question: 'Tushum kelishigi qaysi?', answers: ['-ning', '-ni', '-ga', '-da'], correct: 1 },
+        { question: 'Jo\'nalish kelishigi qaysi?', answers: ['-ning', '-ni', '-ga', '-da'], correct: 2 }
+      ]
+    }
+  },
+  
+  // ========== 9-A SINF TESTLARI ==========
+  '9a': {
+    'matematika': {
+      title: '🔢 Matematika (9-sinf)',
+      icon: '🔢',
+      time: 40,
+      questions: [
+        { question: 'sin 30° = ?', answers: ['0', '1/2', '√2/2', '√3/2'], correct: 1 },
+        { question: 'cos 60° = ?', answers: ['0', '1/2', '√2/2', '√3/2'], correct: 1 },
+        { question: 'tg 45° = ?', answers: ['0', '1', '√3', '1/√3'], correct: 1 },
+        { question: 'sin²α + cos²α = ?', answers: ['0', '1', '2', '-1'], correct: 1 },
+        { question: 'Vektor uzunligi formulasi?', answers: ['√(x²+y²)', 'x²+y²', 'x+y', '√(x+y)'], correct: 0 },
+        { question: 'Ikki vektor skalyar ko\'paytmasi?', answers: ['x₁x₂ + y₁y₂', 'x₁y₂ - x₂y₁', 'x₁/x₂', 'y₁/y₂'], correct: 0 },
+        { question: 'Aylana uzunligi?', answers: ['2πR', 'πR²', 'πD', '2πD'], correct: 0 },
+        { question: 'Doira yuzi?', answers: ['2πR', 'πR²', 'πD', '2πD'], correct: 1 },
+        { question: 'Arifmetik progressiya yig\'indisi?', answers: ['S = (a₁+a_n)n/2', 'S = a₁ × n', 'S = a₁ + d', 'S = a₁ × qⁿ'], correct: 0 },
+        { question: 'Geometrik progressiya yig\'indisi?', answers: ['S = a₁(1-qⁿ)/(1-q)', 'S = a₁ × n', 'S = a₁ + d', 'S = a₁ × qⁿ'], correct: 0 }
+      ]
+    },
+    'fizika': {
+      title: '⚛️ Fizika (9-sinf)',
+      icon: '⚛️',
+      time: 35,
+      questions: [
+        { question: 'Nyutonning 1-qonuni?', answers: ['F = ma', 'Inersiya qonuni', 'Ta\'sir va aks ta\'sir', 'Energiya saqlanish'], correct: 1 },
+        { question: 'Nyutonning 2-qonuni?', answers: ['F = ma', 'Inersiya', 'Ta\'sir va aks ta\'sir', 'Energiya saqlanish'], correct: 0 },
+        { question: 'Nyutonning 3-qonuni?', answers: ['F = ma', 'Inersiya', 'Ta\'sir va aks ta\'sir', 'Energiya saqlanish'], correct: 2 },
+        { question: 'Impuls formulasi?', answers: ['p = mv', 'p = ma', 'p = Ft', 'p = mgh'], correct: 0 },
+        { question: 'Energiya saqlanish qonuni?', answers: ['E = mc²', 'E₁ = E₂', 'F = ma', 'W = Fs'], correct: 1 },
+        { question: 'Potensial energiya formulasi?', answers: ['E_p = mgh', 'E_k = mv²/2', 'E = mc²', 'W = Fs'], correct: 0 },
+        { question: 'Kinetik energiya?', answers: ['E_p = mgh', 'E_k = mv²/2', 'E = mc²', 'W = Fs'], correct: 1 },
+        { question: 'Quvvat formulasi?', answers: ['N = A/t', 'A = Fs', 'E = mc²', 'p = mv'], correct: 0 },
+        { question: 'Tok kuchi formulasi?', answers: ['I = q/t', 'U = IR', 'R = U/I', 'P = UI'], correct: 0 },
+        { question: 'Om qonuni?', answers: ['I = U/R', 'U = IR', 'R = U/I', 'P = UI'], correct: 0 }
+      ]
+    },
+    'kimyo': {
+      title: '🧪 Kimyo (9-sinf)',
+      icon: '🧪',
+      time: 30,
+      questions: [
+        { question: 'Mendeleyev jadvalida nechta element bor?', answers: ['98', '108', '118', '128'], correct: 2 },
+        { question: 'D.I.Mendeleyev qanday qonunni kashf etgan?', answers: ['Davriy qonun', 'Saqlanish qonuni', 'Tortishish qonuni', 'Arximed qonuni'], correct: 0 },
+        { question: 'Atomdagi protonlar soni...', answers: ['tartib raqamiga teng', 'neytronlar soniga teng', 'elektronlar soniga teng', 'A va C'], correct: 3 },
+        { question: 'Izotoplar...', answers: ['protonlari har xil', 'neytronlari har xil', 'elektronlari har xil', 'hammasi har xil'], correct: 1 },
+        { question: 'Kimyoviy bog\'lanish turlari?', answers: ['2', '3', '4', '5'], correct: 2 },
+        { question: 'Kovalent bog\'lanish...', answers: ['elektron almashinadi', 'elektron beriladi', 'elektron olinadi', 'ionlar hosil bo\'ladi'], correct: 0 },
+        { question: 'Ion bog\'lanish...', answers: ['elektron almashinadi', 'elektron beriladi va olinadi', 'umumiy elektron', 'vodorod bog\'i'], correct: 1 },
+        { question: 'Oksidlanish darajasi nima?', answers: ['shartli zaryad', 'haqiqiy zaryad', 'atom massasi', 'valentlik'], correct: 0 },
+        { question: 'Kislotali oksidlar...', answers: ['metallar bilan', 'nometallar bilan', 'asoslar bilan', 'tuzlar bilan'], correct: 1 },
+        { question: 'Asosli oksidlar...', answers: ['metallar bilan', 'nometallar bilan', 'asoslar bilan', 'tuzlar bilan'], correct: 0 }
+      ]
+    }
+  },
+  
+  // ========== 9-B SINF TESTLARI ==========
+  '9b': {
+    'matematika': {
+      title: '🔢 Matematika (9-sinf)',
+      icon: '🔢',
+      time: 40,
+      questions: [
+        { question: 'sin 30° = ?', answers: ['0', '1/2', '√2/2', '√3/2'], correct: 1 },
+        { question: 'cos 60° = ?', answers: ['0', '1/2', '√2/2', '√3/2'], correct: 1 },
+        { question: 'tg 45° = ?', answers: ['0', '1', '√3', '1/√3'], correct: 1 },
+        { question: 'sin²α + cos²α = ?', answers: ['0', '1', '2', '-1'], correct: 1 },
+        { question: 'Vektor uzunligi formulasi?', answers: ['√(x²+y²)', 'x²+y²', 'x+y', '√(x+y)'], correct: 0 },
+        { question: 'Ikki vektor skalyar ko\'paytmasi?', answers: ['x₁x₂ + y₁y₂', 'x₁y₂ - x₂y₁', 'x₁/x₂', 'y₁/y₂'], correct: 0 },
+        { question: 'Aylana uzunligi?', answers: ['2πR', 'πR²', 'πD', '2πD'], correct: 0 },
+        { question: 'Doira yuzi?', answers: ['2πR', 'πR²', 'πD', '2πD'], correct: 1 },
+        { question: 'Arifmetik progressiya yig\'indisi?', answers: ['S = (a₁+a_n)n/2', 'S = a₁ × n', 'S = a₁ + d', 'S = a₁ × qⁿ'], correct: 0 },
+        { question: 'Geometrik progressiya yig\'indisi?', answers: ['S = a₁(1-qⁿ)/(1-q)', 'S = a₁ × n', 'S = a₁ + d', 'S = a₁ × qⁿ'], correct: 0 }
+      ]
+    },
+    'fizika': {
+      title: '⚛️ Fizika (9-sinf)',
+      icon: '⚛️',
+      time: 35,
+      questions: [
+        { question: 'Nyutonning 1-qonuni?', answers: ['F = ma', 'Inersiya qonuni', 'Ta\'sir va aks ta\'sir', 'Energiya saqlanish'], correct: 1 },
+        { question: 'Nyutonning 2-qonuni?', answers: ['F = ma', 'Inersiya', 'Ta\'sir va aks ta\'sir', 'Energiya saqlanish'], correct: 0 },
+        { question: 'Nyutonning 3-qonuni?', answers: ['F = ma', 'Inersiya', 'Ta\'sir va aks ta\'sir', 'Energiya saqlanish'], correct: 2 },
+        { question: 'Impuls formulasi?', answers: ['p = mv', 'p = ma', 'p = Ft', 'p = mgh'], correct: 0 },
+        { question: 'Energiya saqlanish qonuni?', answers: ['E = mc²', 'E₁ = E₂', 'F = ma', 'W = Fs'], correct: 1 },
+        { question: 'Potensial energiya formulasi?', answers: ['E_p = mgh', 'E_k = mv²/2', 'E = mc²', 'W = Fs'], correct: 0 },
+        { question: 'Kinetik energiya?', answers: ['E_p = mgh', 'E_k = mv²/2', 'E = mc²', 'W = Fs'], correct: 1 },
+        { question: 'Quvvat formulasi?', answers: ['N = A/t', 'A = Fs', 'E = mc²', 'p = mv'], correct: 0 },
+        { question: 'Tok kuchi formulasi?', answers: ['I = q/t', 'U = IR', 'R = U/I', 'P = UI'], correct: 0 },
+        { question: 'Om qonuni?', answers: ['I = U/R', 'U = IR', 'R = U/I', 'P = UI'], correct: 0 }
+      ]
+    },
+    'kimyo': {
+      title: '🧪 Kimyo (9-sinf)',
+      icon: '🧪',
+      time: 30,
+      questions: [
+        { question: 'Mendeleyev jadvalida nechta element bor?', answers: ['98', '108', '118', '128'], correct: 2 },
+        { question: 'D.I.Mendeleyev qanday qonunni kashf etgan?', answers: ['Davriy qonun', 'Saqlanish qonuni', 'Tortishish qonuni', 'Arximed qonuni'], correct: 0 },
+        { question: 'Atomdagi protonlar soni...', answers: ['tartib raqamiga teng', 'neytronlar soniga teng', 'elektronlar soniga teng', 'A va C'], correct: 3 },
+        { question: 'Izotoplar...', answers: ['protonlari har xil', 'neytronlari har xil', 'elektronlari har xil', 'hammasi har xil'], correct: 1 },
+        { question: 'Kimyoviy bog\'lanish turlari?', answers: ['2', '3', '4', '5'], correct: 2 },
+        { question: 'Kovalent bog\'lanish...', answers: ['elektron almashinadi', 'elektron beriladi', 'elektron olinadi', 'ionlar hosil bo\'ladi'], correct: 0 },
+        { question: 'Ion bog\'lanish...', answers: ['elektron almashinadi', 'elektron beriladi va olinadi', 'umumiy elektron', 'vodorod bog\'i'], correct: 1 },
+        { question: 'Oksidlanish darajasi nima?', answers: ['shartli zaryad', 'haqiqiy zaryad', 'atom massasi', 'valentlik'], correct: 0 },
+        { question: 'Kislotali oksidlar...', answers: ['metallar bilan', 'nometallar bilan', 'asoslar bilan', 'tuzlar bilan'], correct: 1 },
+        { question: 'Asosli oksidlar...', answers: ['metallar bilan', 'nometallar bilan', 'asoslar bilan', 'tuzlar bilan'], correct: 0 }
+      ]
+    }
+  },
+  
+  // ========== 10-A SINF TESTLARI ==========
+  '10a': {
+    'matematika': {
+      title: '🔢 Matematika (10-sinf)',
+      icon: '🔢',
+      time: 45,
+      questions: [
+        { question: 'lim (x→0) sin x / x = ?', answers: ['0', '1', '∞', 'bilan'], correct: 1 },
+        { question: 'Hosila nima?', answers: ['o\'zgarish tezligi', 'funksiya', 'limit', 'integral'], correct: 0 },
+        { question: '(xⁿ)\' = ?', answers: ['nxⁿ⁻¹', 'xⁿ⁻¹', 'n/xⁿ⁻¹', 'xⁿ'], correct: 0 },
+        { question: '(sin x)\' = ?', answers: ['cos x', '-cos x', 'sin x', '-sin x'], correct: 0 },
+        { question: '(cos x)\' = ?', answers: ['cos x', '-cos x', 'sin x', '-sin x'], correct: 3 },
+        { question: 'e^x ning hosilasi?', answers: ['e^x', 'xe^x⁻¹', 'ln x', '1/x'], correct: 0 },
+        { question: 'ln x ning hosilasi?', answers: ['e^x', '1/x', 'x', 'ln x'], correct: 1 },
+        { question: 'Funksiyaning ekstremum nuqtalari?', answers: ['hosila nolga teng', 'hosila mavjud emas', 'A va B', 'limit'], correct: 0 },
+        { question: 'Integral nima?', answers: ['yig\'indi', 'hosilaga teskari', 'limit', 'funksiya'], correct: 1 },
+        { question: '∫ xⁿ dx = ?', answers: ['xⁿ⁺¹/(n+1)+C', 'nxⁿ⁻¹', 'xⁿ+ C', 'nxⁿ⁺¹'], correct: 0 }
+      ]
+    },
+    'fizika': {
+      title: '⚛️ Fizika (10-sinf)',
+      icon: '⚛️',
+      time: 40,
+      questions: [
+        { question: 'Elektr maydon kuchlanganligi formulasi?', answers: ['E = F/q', 'E = kq/r²', 'E = U/d', 'Hammasi to\'g\'ri'], correct: 3 },
+        { question: 'Kondensator sig\'imi formulasi?', answers: ['C = q/U', 'C = ε₀S/d', 'C = ε₀εS/d', 'Hammasi to\'g\'ri'], correct: 3 },
+        { question: 'Magnit maydon induksiyasi birligi?', answers: ['Tesla', 'Veb', 'Gauss', 'Amper'], correct: 0 },
+        { question: 'Elektromagnit induksiya qonuni kim tomonidan kashf etilgan?', answers: ['Faradey', 'Maksvell', 'Nyuton', 'Om'], correct: 0 },
+        { question: 'O\'zgaruvchan tok chastotasi O\'zbekistonda?', answers: ['50 Hz', '60 Hz', '100 Hz', '220 Hz'], correct: 0 },
+        { question: 'Transformator nima?', answers: ['kuchlanishni o\'zgartiradi', 'tokni o\'zgartiradi', 'quvvatni o\'zgartiradi', 'qarshilikni o\'zgartiradi'], correct: 0 },
+        { question: 'Yorug\'lik dispersiyasi nima?', answers: ['ranglarga ajralishi', 'sinishi', 'qaytishi', 'yutilishi'], correct: 0 },
+        { question: 'Linzaning optik kuchi birligi?', answers: ['Dioptriya', 'Metr', 'Santimetr', 'Vatt'], correct: 0 },
+        { question: 'Yorug\'lik tezligi vakuumda?', answers: ['3·10⁸ m/s', '3·10⁵ m/s', '3·10⁶ m/s', '3·10⁷ m/s'], correct: 0 },
+        { question: 'Foton energiyasi formulasi?', answers: ['E = hν', 'E = mc²', 'E = mv²/2', 'E = mgh'], correct: 0 }
+      ]
+    },
+    'kimyo': {
+      title: '🧪 Kimyo (10-sinf)',
+      icon: '🧪',
+      time: 35,
+      questions: [
+        { question: 'Organik birikmalar tarkibida qaysi element bo\'ladi?', answers: ['Uglerod', 'Kislorod', 'Vodorod', 'Azot'], correct: 0 },
+        { question: 'Alkanlarning umumiy formulasi?', answers: ['CₙH₂ₙ₊₂', 'CₙH₂ₙ', 'CₙH₂ₙ₋₂', 'CₙH₂ₙ₊₁'], correct: 0 },
+        { question: 'Alkenlarning umumiy formulasi?', answers: ['CₙH₂ₙ₊₂', 'CₙH₂ₙ', 'CₙH₂ₙ₋₂', 'CₙH₂ₙ₊₁'], correct: 1 },
+        { question: 'Alkinlarning umumiy formulasi?', answers: ['CₙH₂ₙ₊₂', 'CₙH₂ₙ', 'CₙH₂ₙ₋₂', 'CₙH₂ₙ₊₁'], correct: 2 },
+        { question: 'Benzol formulasi?', answers: ['C₆H₆', 'C₆H₁₂', 'C₆H₁₄', 'C₆H₁₀'], correct: 0 },
+        { question: 'Spirtlarning funksional guruhi?', answers: ['-OH', '-COOH', '-CHO', '-NH₂'], correct: 0 },
+        { question: 'Aldegidlarning funksional guruhi?', answers: ['-OH', '-COOH', '-CHO', '-NH₂'], correct: 2 },
+        { question: 'Karbon kislotalarning funksional guruhi?', answers: ['-OH', '-COOH', '-CHO', '-NH₂'], correct: 1 },
+        { question: 'Polimerlanish reaksiyasi nima?', answers: ['molekulalarning birikishi', 'molekulalarning parchalanishi', 'atomlarning almashinishi', 'ionlarning hosil bo\'lishi'], correct: 0 },
+        { question: 'Esterlanish reaksiyasi natijasida nima hosil bo\'ladi?', answers: ['Efir', 'Spirt', 'Kislota', 'Aldegid'], correct: 0 }
+      ]
+    },
+    'biologiya': {
+      title: '🧬 Biologiya (10-sinf)',
+      icon: '🧬',
+      time: 35,
+      questions: [
+        { question: 'Hujayraning energiya ishlab chiqaruvchi organoidi?', answers: ['Mitoxondriya', 'Yadro', 'Ribosoma', 'Golji'], correct: 0 },
+        { question: 'Fotosintez jarayoni qayerda sodir bo\'ladi?', answers: ['Xloroplast', 'Mitoxondriya', 'Yadro', 'Vakuola'], correct: 0 },
+        { question: 'DNK tarkibida qanday qandlar bor?', answers: ['Dezoksiriboza', 'Riboza', 'Glyukoza', 'Fruktoza'], correct: 0 },
+        { question: 'RNK tarkibida qanday qandlar bor?', answers: ['Dezoksiriboza', 'Riboza', 'Glyukoza', 'Fruktoza'], correct: 1 },
+        { question: 'Genetika qonunlarini kim kashf etgan?', answers: ['Mendel', 'Darvin', 'Lamark', 'Pavlov'], correct: 0 },
+        { question: 'Odamda nechta xromosoma bor?', answers: ['46', '48', '44', '42'], correct: 0 },
+        { question: 'Ayol jinsiy xromosomalari?', answers: ['XX', 'XY', 'YY', 'XO'], correct: 0 },
+        { question: 'Erkak jinsiy xromosomalari?', answers: ['XX', 'XY', 'YY', 'XO'], correct: 1 },
+        { question: 'Oqsillar qanday monomerlardan tashkil topgan?', answers: ['Aminokislotalar', 'Nukleotidlar', 'Glyukoza', 'Yog\' kislotalari'], correct: 0 },
+        { question: 'Vitaminlar qanday vazifani bajaradi?', answers: ['Moddalar almashinuvini tartibga soladi', 'Energiya beradi', 'Qurilish materiali', 'Himoya vazifasi'], correct: 0 }
+      ]
+    }
+  },
+  
   // ========== KOMBINATSION TEST (Barcha sinflar uchun) ==========
   'katta-test': {
     title: '🎯 Kombinatsion test',
@@ -392,6 +718,28 @@ function loadSubjects(classNum) {
       questions: classTests['fizika'].questions.length,
       time: classTests['fizika'].time,
       desc: `${getClassName(classNum)} uchun fizika testlari`
+    });
+  }
+  
+  if (classTests['kimyo']) {
+    availableSubjects.push({ 
+      id: 'kimyo', 
+      name: 'Kimyo', 
+      icon: '🧪', 
+      questions: classTests['kimyo'].questions.length,
+      time: classTests['kimyo'].time,
+      desc: `${getClassName(classNum)} uchun kimyo testlari`
+    });
+  }
+  
+  if (classTests['biologiya']) {
+    availableSubjects.push({ 
+      id: 'biologiya', 
+      name: 'Biologiya', 
+      icon: '🧬', 
+      questions: classTests['biologiya'].questions.length,
+      time: classTests['biologiya'].time,
+      desc: `${getClassName(classNum)} uchun biologiya testlari`
     });
   }
   
