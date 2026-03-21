@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma'lumot | 41-Maktab</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .info-section { padding: 60px 0; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); min-height: 80vh; }
+    .search-container { max-width: 600px; margin: 0 auto 40px; display: flex; gap: 15px; }
+    .search-container input { flex: 1; padding: 16px 24px; border: 2px solid #e2e8f0; border-radius: 50px; font-size: 16px; background: white; transition: all 0.3s ease; }
+    .search-container input:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 4px rgba(37,99,235,0.1); }
+    .search-container button { background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; border: none; padding: 0 32px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+    .search-container button:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(37,99,235,0.4); }
+    .wiki-result { background: white; border-radius: 24px; padding: 30px; margin-top: 20px; box-shadow: 0 10px 25px -8px rgba(0,0,0,0.1); animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .wiki-header { display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+    .wiki-image { width: 120px; height: 120px; background: linear-gradient(135deg, #e2e8f0, #cbd5e1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 48px; overflow: hidden; flex-shrink: 0; }
+    .wiki-image img { width: 100%; height: 100%; object-fit: cover; }
+    .wiki-title { font-size: 26px; font-weight: 800; background: linear-gradient(135deg, #2563eb, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
+    .wiki-summary { color: #1e293b; line-height: 1.8; margin-bottom: 20px; }
+    .wiki-link { display: inline-block; background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+    .wiki-link:hover { transform: translateY(-2px); }
+    .loading { text-align: center; padding: 60px; }
+    .loading-spinner { width: 50px; height: 50px; border: 4px solid #e2e8f0; border-top-color: #2563eb; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .error-state { text-align: center; padding: 60px; background: white; border-radius: 24px; }
+    .error-icon { font-size: 64px; margin-bottom: 20px; }
+    .suggestions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .suggestion-btn { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 8px 20px; border-radius: 30px; cursor: pointer; transition: all 0.3s ease; font-size: 14px; }
+    .suggestion-btn:hover { background: #2563eb; color: white; border-color: #2563eb; }
+    body.dark .info-section { background: linear-gradient(135deg, #0f172a, #1e293b); }
+    body.dark .search-container input { background: #1e293b; border-color: #334155; color: #f1f5f9; }
+    body.dark .wiki-result { background: #1e293b; }
+    body.dark .wiki-summary { color: #cbd5e1; }
+    body.dark .error-state { background: #1e293b; }
+    body.dark .suggestion-btn { background: #2d3a4f; border-color: #334155; color: #f1f5f9; }
+    @media (max-width: 768px) { .search-container { flex-direction: column; } .search-container button { padding: 14px; } .wiki-header { flex-direction: column; align-items: center; text-align: center; } }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="logo"><img src="images/logo.png" alt="41-maktab logotipi" width="50" height="50"><div class="brand"><h1>41-Maktab</h1><p>Bilim – kelajak kaliti</p></div></div>
+      <nav class="nav">
+        <ul>
+          <li><a href="index.html">Asosiy</a></li>
+          <li><a href="yangiliklar.html">Yangiliklar</a></li>
+          <li><a href="loyihalar.html">Loyihalar</a></li>
+          <li><a href="testlar.html">Testlar</a></li>
+          <li><a href="kutubxona.html">Kutubxona</a></li>
+          <li><a href="malumot.html" class="active">Ma'lumot</a></li>
+          <li><a href="aloqa.html">Aloqa</a></li>
+        </ul>
+      </nav>
+      <div class="nav-tools"><input type="text" id="search-input" placeholder="Qidiruv..." class="search-box"><button id="dark-mode-toggle" class="dark-btn">🌙</button></div>
+    </div>
+  </header>
+  <main>
+    <section class="page-title info-title"><div class="container"><h1>🔍 Ma'lumot olish</h1><p>Vikipediya orqali istalgan mavzu bo'yicha ma'lumot toping</p></div><div class="floating-element"></div></section>
+    <section class="info-section">
+      <div class="container">
+        <div class="search-container">
+          <input type="text" id="wiki-search" placeholder="Ma'lumot qidirish (masalan: Alisher Navoiy, Amir Temur)...">
+          <button onclick="searchWikipedia()">🔍 Qidirish</button>
+        </div>
+        <div id="wiki-result"></div>
+        <div class="suggestions">
+          <span class="suggestion-btn" onclick="quickSearch('Alisher Navoiy')">📚 Alisher Navoiy</span>
+          <span class="suggestion-btn" onclick="quickSearch('Amir Temur')">⚔️ Amir Temur</span>
+          <span class="suggestion-btn" onclick="quickSearch('O\'zbekiston')">🇺🇿 O'zbekiston</span>
+          <span class="suggestion-btn" onclick="quickSearch('Abdulla Qodiriy')">📖 Abdulla Qodiriy</span>
+          <span class="suggestion-btn" onclick="quickSearch('Toshkent')">🏙️ Toshkent</span>
+          <span class="suggestion-btn" onclick="quickSearch('Samarqand')">🕌 Samarqand</span>
+          <span class="suggestion-btn" onclick="quickSearch('Buxoro')">🏛️ Buxoro</span>
+          <span class="suggestion-btn" onclick="quickSearch('Mirzo Ulug\'bek')">🔭 Mirzo Ulug'bek</span>
+          <span class="suggestion-btn" onclick="quickSearch('Al-Xorazmiy')">📐 Al-Xorazmiy</span>
+          <span class="suggestion-btn" onclick="quickSearch('Imom Buxoriy')">📖 Imom Buxoriy</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer"><div class="container footer-inner"><p>© 2025 41-Maktab. Barcha huquqlar himoyalangan.</p><address><p>👨‍💼 Direktor: Ziyayeva Ozodaxon</p><p>👨‍💻 Admin: Latifjonov Jalolmirzo</p></address></div></footer>
+  <script src="js/main.js"></script>
+  <script>
+    async function searchWikipedia() {
+      const query = document.getElementById('wiki-search').value.trim();
+      if (!query) return;
+      const container = document.getElementById('wiki-result');
+      container.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>🔍 Vikipediya\'dan qidirilmoqda...</p></div>';
+      try {
+        let result = await searchUzbekWikipedia(query);
+        if (!result) result = await searchEnglishWikipedia(query);
+        if (result) { displayWikiResult(result); }
+        else {
+          container.innerHTML = `<div class="error-state"><div class="error-icon">❓</div><h3>Ma'lumot topilmadi</h3><p>"${query}" bo'yicha Vikipediya'da ma'lumot topilmadi.</p></div>`;
+        }
+      } catch (error) {
+        container.innerHTML = `<div class="error-state"><div class="error-icon">⚠️</div><h3>Xatolik yuz berdi</h3><p>Internet aloqasini tekshiring.</p></div>`;
+      }
+    }
+    async function searchUzbekWikipedia(query) {
+      try {
+        const url = `https://uz.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(query)}`;
+        const res = await fetch(url);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.title && !data.title.includes("Not found")) {
+            return { title: data.title, description: data.description || "Oʻzbekcha Vikipediya", extract: data.extract || "Ma'lumot mavjud emas", thumbnail: data.thumbnail?.source || null, url: data.content_urls?.desktop?.page || `https://uz.wikipedia.org/wiki/${encodeURIComponent(query)}`, lang: "uz" };
+          }
+        }
+      } catch(e) {}
+      return null;
+    }
+    async function searchEnglishWikipedia(query) {
+      try {
+        const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(query)}`;
+        const res = await fetch(url);
+        if (res.ok) {
+          const data = await res.json();
+          if (data.title && !data.title.includes("Not found")) {
+            return { title: data.title, description: data.description || "English Wikipedia", extract: data.extract || "Information not available", thumbnail: data.thumbnail?.source || null, url: data.content_urls?.desktop?.page || `https://en.wikipedia.org/wiki/${encodeURIComponent(query)}`, lang: "en" };
+          }
+        }
+      } catch(e) {}
+      return null;
+    }
+    function displayWikiResult(result) {
+      const container = document.getElementById('wiki-result');
+      const langName = result.lang === 'uz' ? 'Oʻzbekcha' : 'English';
+      container.innerHTML = `<div class="wiki-result"><div class="wiki-header"><div class="wiki-image">${result.thumbnail ? `<img src="${result.thumbnail}" alt="${result.title}">` : (result.lang === 'uz' ? '📚' : '📖')}</div><div><div class="wiki-title">${result.title}</div><div style="color:#64748b;margin-bottom:10px;">${langName} Vikipediya</div><div style="font-size:14px;color:#2563eb;">${result.description || ''}</div></div></div><div class="wiki-summary">${result.extract.length > 600 ? result.extract.substring(0,600)+'...' : result.extract}</div><a href="${result.url}" target="_blank" class="wiki-link">🔗 Toʻliq oʻqish (${result.lang.toUpperCase()})</a></div>`;
+    }
+    function quickSearch(query) { document.getElementById('wiki-search').value = query; searchWikipedia(); }
+    document.getElementById('wiki-search')?.addEventListener('keypress', e => { if (e.key === 'Enter') searchWikipedia(); });
+    document.addEventListener('DOMContentLoaded', () => { quickSearch('Alisher Navoiy'); });
+  </script>
+</body>
+</html>
