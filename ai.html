@@ -292,7 +292,7 @@
                     if (key === "YOUR_GROQ_KEY_1" || !key) continue;
                     try { const res = await callGroq(key, message); if (res.status === 200) { const data = await res.json(); const ans = data.choices[0]?.message?.content || 'Javob topilmadi'; saveToCache(message, ans); return ans; } } catch(e) { continue; }
                 }
-                return "❌ API kalitlari sozlanmagan. Iltimos, kalitlarni o'rnating.";
+                return "❌ Hozircha AI to'xtatilgan 2026-yil 1-aprel kuni ishga tushuriladi.";
             } else {
                 for (let api of PRO_KEYS) {
                     if (api.key === "YOUR_CEREBRAS_KEY_1" || api.key === "YOUR_GROQ_KEY_1") continue;
