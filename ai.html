@@ -2,7 +2,7 @@
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Jalolmirzo AI | Maktab Yordamchisi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
@@ -12,9 +12,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/css.min.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif; background: #0a0a0a; height: 100vh; overflow: hidden; color: #e8eaed; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Noto Color Emoji', 'Apple Color Emoji', system-ui, sans-serif; background: #0a0a0a; height: 100vh; overflow: hidden; color: #e8eaed; }
         .app { display: flex; height: 100vh; }
-        .sidebar { width: 280px; background: #0f0f0f; border-right: 1px solid #1f1f1f; display: flex; flex-direction: column; flex-shrink: 0; transition: transform 0.2s ease; }
+        .sidebar { width: 280px; background: #0f0f0f; border-right: 1px solid #1f1f1f; display: flex; flex-direction: column; flex-shrink: 0; transition: left 0.3s ease; position: relative; z-index: 100; }
         .sidebar-header { padding: 20px 16px; border-bottom: 1px solid #1f1f1f; }
         .new-chat-btn { width: 100%; padding: 12px; background: linear-gradient(135deg, #10a37f, #0f8c6b); border: none; border-radius: 30px; color: white; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s; text-align: center; }
         .new-chat-btn:hover { transform: scale(0.98); }
@@ -33,8 +33,8 @@
         .history-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; border-radius: 12px; margin-bottom: 2px; cursor: pointer; transition: background 0.2s; }
         .history-item:hover { background: #1a1a1a; }
         .history-item.active { background: #1a1a1a; border-left: 3px solid #10a37f; }
-        .chat-name { flex: 1; font-size: 14px; color: #9aa0a6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .chat-name.editing { background: #2a2a2a; padding: 4px 8px; border-radius: 8px; outline: none; color: white; }
+        .chat-name { flex: 1; font-size: 14px; color: #9aa0a6; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; }
+        .chat-name.editing { background: #2a2a2a; padding: 4px 8px; border-radius: 8px; outline: none; color: white; cursor: text; white-space: normal; }
         .chat-menu-btn { background: transparent; border: none; color: #5a5a5a; cursor: pointer; padding: 4px 8px; border-radius: 6px; font-size: 14px; opacity: 0; }
         .history-item:hover .chat-menu-btn { opacity: 1; }
         .chat-menu-btn:hover { background: #2a2a2a; color: #e8eaed; }
@@ -58,12 +58,12 @@
         .welcome-subtitle { color: #9aa0a6; font-size: 14px; margin-bottom: 24px; }
         .welcome-stats { display: flex; justify-content: center; gap: 24px; margin-bottom: 32px; font-size: 13px; color: #6b6b6b; }
         .suggestions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-        .suggestion-chip { background: #1a1a1a; padding: 10px 18px; border-radius: 100px; font-size: 14px; cursor: pointer; border: 1px solid #2a2a2a; transition: all 0.2s; color: #e8eaed; }
+        .suggestion-chip { background: #1a1a1a; padding: 10px 18px; border-radius: 100px; font-size: 14px; cursor: pointer; border: 1px solid #2a2a2a; transition: all 0.2s; color: #e8eaed; font-family: inherit; }
         .suggestion-chip:hover { border-color: #10a37f; transform: translateY(-2px); }
         .message { display: flex; margin-bottom: 24px; animation: fadeInUp 0.3s ease; }
         .message.user { justify-content: flex-end; }
         .message.ai { justify-content: flex-start; }
-        .message-bubble { max-width: 85%; padding: 12px 18px; border-radius: 20px; line-height: 1.5; font-size: 15px; position: relative; }
+        .message-bubble { max-width: 85%; padding: 12px 18px; border-radius: 20px; line-height: 1.5; font-size: 15px; position: relative; font-family: inherit; }
         .message.user .message-bubble { background: linear-gradient(135deg, #10a37f, #0f8c6b); color: white; border-bottom-right-radius: 4px; }
         .message.ai .message-bubble { background: #1a1a1a; color: #e8eaed; border-bottom-left-radius: 4px; }
         .message-time { font-size: 10px; color: #5a5a5a; margin-top: 4px; text-align: right; }
@@ -103,15 +103,74 @@
         .understand-btn:hover { transform: scale(0.98); }
         @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @media (max-width: 768px) { .sidebar { position: fixed; left: -280px; z-index: 100; height: 100vh; } .sidebar.open { left: 0; } .menu-toggle { display: block; } .messages-inner { padding: 16px; } .message-bubble { max-width: 90%; font-size: 14px; } .welcome-title { font-size: 28px; } .splash-logo { font-size: 32px; } .onboarding-card { padding: 24px; } .onboarding-title { font-size: 20px; } }
-        .menu-toggle { display: none; background: none; border: none; color: #e8eaed; font-size: 20px; cursor: pointer; }
+        
+        /* TELEFON VERSIYASI */
+        @media (max-width: 768px) {
+            .sidebar {
+                position: fixed;
+                left: -280px;
+                z-index: 1000;
+                height: 100vh;
+                top: 0;
+                transition: left 0.3s ease;
+            }
+            .sidebar.open {
+                left: 0;
+            }
+            .main-chat {
+                width: 100%;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            .messages-inner {
+                padding: 16px;
+            }
+            .message-bubble {
+                max-width: 90%;
+                font-size: 14px;
+            }
+            .welcome-title {
+                font-size: 28px;
+            }
+            .splash-logo {
+                font-size: 32px;
+            }
+            .onboarding-card {
+                padding: 24px;
+            }
+            .onboarding-title {
+                font-size: 20px;
+            }
+            .suggestion-chip {
+                font-size: 13px;
+                padding: 8px 14px;
+            }
+            .chat-header {
+                padding: 12px 16px;
+            }
+            .logo {
+                font-size: 18px;
+            }
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #e8eaed;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 8px;
+            line-height: 1;
+        }
     </style>
 </head>
 <body>
     <div class="splash-screen" id="splashScreen"><div class="splash-logo">JALOLMIRZO AI</div></div>
     <div class="app">
         <div class="sidebar" id="sidebar">
-            <div class="sidebar-header"><button class="new-chat-btn" onclick="newChat()">+ Yangi suhbat</button></div>
+            <div class="sidebar-header"><button class="new-chat-btn" onclick="newChat()">➕ Yangi suhbat</button></div>
             <div class="mode-toggle"><div class="mode-switch" id="modeSwitch"><div class="mode-option" data-mode="normal" onclick="setMode('normal')">🔵 ODDIY</div><div class="mode-option" data-mode="pro" onclick="setMode('pro')">🟣 PRO</div></div><div class="mode-info" id="modeInfo"></div></div>
             <div class="admin-panel" id="adminPanel"><div class="admin-title">👑 Admin panel</div><div class="admin-stats" id="adminStats"></div><button class="clear-cache-btn" onclick="clearCache()">🗑️ Keshni tozalash (512 MB)</button></div>
             <div class="chat-history" id="chatHistory"></div>
@@ -125,10 +184,7 @@
     </div>
 
     <script>
-        // ============ API KALITLAR (XAVFSIZLIK UCHUN O'CHIRILDI) ============
-        // Kalitlarni o'zingizning xavfsiz platformangizda (Vercel/Netlify env) saqlang
-        // Hozircha bo'sh, keyin o'z kalitlaringizni qo'shing
-        
+        // ============ API KALITLAR ============
         const NORMAL_KEYS = [
             "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",
             "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",
@@ -150,7 +206,6 @@
             { type: "groq", key: "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" },
             { type: "groq", key: "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" },
             { type: "gemini", key: "AIzaSyBuYPd4L87mf4W8FZh3ivUWauqtgYoNGlA" }
-        ];
         ];
         
         const MODEL = "llama-3.1-8b-instant";
@@ -278,87 +333,4 @@
         
         async function callGemini(key, message) {
             const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${key}`, {
-                method: 'POST', headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ contents: [{ parts: [{ text: message }] }] })
-            });
-            return res;
-        }
-        
-        async function getAIResponse(message) {
-            const cached = getFromCache(message);
-            if (cached) return cached;
-            
-            if (currentMode === 'normal') {
-                for (let key of NORMAL_KEYS) {
-                    if (key === "YOUR_GROQ_KEY_1" || !key) continue;
-                    try { const res = await callGroq(key, message); if (res.status === 200) { const data = await res.json(); const ans = data.choices[0]?.message?.content || 'Javob topilmadi'; saveToCache(message, ans); return ans; } } catch(e) { continue; }
-                }
-                return "❌ Hozircha AI to'xtatilgan 2026-yil 1-aprel kuni ishga tushuriladi.";
-            } else {
-                for (let api of PRO_KEYS) {
-                    if (api.key === "YOUR_CEREBRAS_KEY_1" || api.key === "YOUR_GROQ_KEY_1") continue;
-                    try {
-                        let res; if (api.type === 'cerebras') res = await callCerebras(api.key, message);
-                        else if (api.type === 'openrouter') res = await callOpenRouter(api.key, message);
-                        else if (api.type === 'huggingface') res = await callHuggingFace(api.key, message);
-                        else if (api.type === 'groq') res = await callGroq(api.key, message);
-                        else if (api.type === 'gemini') res = await callGemini(api.key, message);
-                        else continue;
-                        if (res.status === 200) {
-                            let data = await res.json();
-                            let ans = '';
-                            if (api.type === 'cerebras') ans = data.choices[0]?.message?.content;
-                            else if (api.type === 'openrouter') ans = data.choices[0]?.message?.content;
-                            else if (api.type === 'huggingface') ans = data[0]?.generated_text?.split('assistant')[1]?.trim() || 'Javob topilmadi';
-                            else if (api.type === 'groq') ans = data.choices[0]?.message?.content;
-                            else if (api.type === 'gemini') ans = data.candidates[0]?.content?.parts[0]?.text || 'Javob topilmadi';
-                            if (ans && ans !== 'Javob topilmadi') { saveToCache(message, ans); return ans; }
-                        }
-                    } catch(e) { continue; }
-                }
-                return "❌ Hozircha AI to'xtatilgan 2026-yil 1-aprel kuni ishga tushuriladi.";
-            }
-        }
-        
-        // ============ CHAT FUNCTIONS ============
-        function toggleSidebar() { document.getElementById('sidebar').classList.toggle('open'); }
-        function closeDropdown() { if (activeDropdown) { activeDropdown.remove(); activeDropdown = null; } }
-        function showChatMenu(event, chatId, element) {
-            event.stopPropagation(); closeDropdown(); const rect = element.getBoundingClientRect(); const dropdown = document.createElement('div'); dropdown.className = 'chat-menu-dropdown'; dropdown.style.top = `${rect.bottom + 4}px`; dropdown.style.left = `${rect.left}px`; dropdown.innerHTML = `<button onclick="renameChat(${chatId})">✏️ Nomini o'zgartirish</button><button onclick="deleteChat(${chatId})" class="delete-btn">🗑️ O'chirish</button>`; document.body.appendChild(dropdown); activeDropdown = dropdown; const closeHandler = (e) => { if (!dropdown.contains(e.target)) { closeDropdown(); document.removeEventListener('click', closeHandler); } }; setTimeout(() => document.addEventListener('click', closeHandler), 0);
-        }
-        function renameChat(chatId) {
-            closeDropdown(); const chat = chats.find(c => c.id === chatId); if (!chat) return; const historyItems = document.querySelectorAll('.history-item'); const targetItem = Array.from(historyItems).find(item => item.querySelector('.chat-name')?.textContent === chat.name); if (targetItem) { const nameSpan = targetItem.querySelector('.chat-name'); const originalName = nameSpan.textContent; nameSpan.contentEditable = true; nameSpan.classList.add('editing'); nameSpan.focus(); const saveRename = () => { const newName = nameSpan.textContent.trim(); nameSpan.contentEditable = false; nameSpan.classList.remove('editing'); chat.name = newName || originalName; renderChatHistory(); saveChatsToLocal(); }; nameSpan.addEventListener('blur', saveRename, { once: true }); nameSpan.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); nameSpan.blur(); } }); }
-        }
-        function deleteChat(chatId) { closeDropdown(); const index = chats.findIndex(c => c.id === chatId); if (index !== -1) { chats.splice(index, 1); if (chats.length === 0) newChat(); else if (currentChatId === chatId) loadChat(chats[0].id); renderChatHistory(); saveChatsToLocal(); } }
-        function renderChatHistory() { const historyDiv = document.getElementById('chatHistory'); historyDiv.innerHTML = ''; chats.forEach(chat => { const item = document.createElement('div'); item.className = `history-item ${chat.id === currentChatId ? 'active' : ''}`; item.onclick = (e) => { if (!e.target.closest('.chat-menu-btn')) loadChat(chat.id); }; const nameSpan = document.createElement('span'); nameSpan.className = 'chat-name'; nameSpan.textContent = chat.name; const menuBtn = document.createElement('button'); menuBtn.className = 'chat-menu-btn'; menuBtn.textContent = '•••'; menuBtn.onclick = (e) => { e.stopPropagation(); showChatMenu(e, chat.id, menuBtn); }; item.appendChild(nameSpan); item.appendChild(menuBtn); historyDiv.appendChild(item); }); }
-        function loadChat(chatId) { currentChatId = chatId; const chat = chats.find(c => c.id === chatId); if (!chat) return; const inner = document.getElementById('messagesInner'); inner.innerHTML = ''; if (chat.messages.length === 0) { inner.innerHTML = `<div class="welcome-screen"><div class="welcome-title">✨ Jalolmirzo AI v1.5</div><div class="welcome-subtitle">Sizning intellektual yordamchingiz!</div><div class="welcome-stats"><span>🚀 13+ API</span><span>⚡ 150,000+ so'rov/oy</span><span>💡 24/7</span></div><div class="suggestions"><div class="suggestion-chip" onclick="sendSuggestion('Matematikadan masala yechib ber')">📐 Matematika</div><div class="suggestion-chip" onclick="sendSuggestion('Fizikadan qonunlarni tushuntir')">⚛️ Fizika</div><div class="suggestion-chip" onclick="sendSuggestion('Kod yozib ber')">💻 Kod yozish</div><div class="suggestion-chip" onclick="sendSuggestion('Ona tilida xatolarni tuzat')">📖 Ona tili</div></div><div class="welcome-stats" style="margin-top:32px;font-size:12px;"><span>📈 v2.0 → Kesh tizimi</span><span>🎯 v3.0 → 70 mlrd o'zbek modeli</span><span>🌟 v4.0 → Multi-modal</span></div><div class="welcome-subtitle" style="margin-top:24px;font-size:13px;">🎯 Maqsad: 41-Maktab o'quvchilariga eng tez va sifatli AI xizmatini taqdim etish.</div></div>`; } else { chat.messages.forEach(msg => appendMessageToInner(msg.content, msg.role)); } renderChatHistory(); saveChatsToLocal(); }
-        function appendMessageToInner(content, role) { const inner = document.getElementById('messagesInner'); const welcome = inner.querySelector('.welcome-screen'); if (welcome) welcome.remove(); const messageDiv = document.createElement('div'); messageDiv.className = `message ${role === 'user' ? 'user' : 'ai'}`; const now = new Date().toLocaleTimeString('uz-UZ', { hour: '2-digit', minute: '2-digit' }); const formattedContent = role === 'ai' ? formatMessage(content) : content.replace(/\n/g, '<br>'); messageDiv.innerHTML = `<div class="message-bubble">${formattedContent}<div class="message-time">${now}</div></div>`; inner.appendChild(messageDiv); if (role === 'ai') { messageDiv.querySelectorAll('pre code').forEach(block => hljs.highlightElement(block)); } inner.scrollIntoView({ behavior: 'smooth', block: 'end' }); }
-        function formatMessage(text) { const codeBlockRegex = /```(\w*)\n([\s\S]*?)```/g; let formatted = text; let match; let codeBlocks = []; while ((match = codeBlockRegex.exec(text)) !== null) { const lang = match[1] || 'plaintext'; const code = match[2]; const id = `code-${Date.now()}-${codeBlocks.length}`; codeBlocks.push({ id, lang, code }); formatted = formatted.replace(match[0], `<div class="code-block" id="${id}"><pre><code class="language-${lang}">${escapeHtml(code)}</code></pre><button class="copy-btn" onclick="copyCode('${id}')">📋 Copy</button></div>`); } formatted = formatted.replace(/\n/g, '<br>'); return formatted; }
-        function escapeHtml(text) { return text.replace(/[&<>]/g, function(m) { if (m === '&') return '&amp;'; if (m === '<') return '&lt;'; if (m === '>') return '&gt;'; return m; }); }
-        function copyCode(blockId) { const block = document.getElementById(blockId); const code = block.querySelector('code'); const text = code.textContent; navigator.clipboard.writeText(text).then(() => { const btn = block.querySelector('.copy-btn'); btn.textContent = '✅ Copied!'; setTimeout(() => btn.textContent = '📋 Copy', 2000); }); }
-        function addMessage(content, role) { const chat = chats.find(c => c.id === currentChatId); if (chat) { chat.messages.push({ content, role, time: new Date() }); if (chat.name === 'Yangi suhbat' && chat.messages.length > 0 && role === 'user') { chat.name = content.substring(0, 28) + (content.length > 28 ? '...' : ''); renderChatHistory(); } } appendMessageToInner(content, role); saveChatsToLocal(); }
-        function addTypingIndicator() { const inner = document.getElementById('messagesInner'); const welcome = inner.querySelector('.welcome-screen'); if (welcome) welcome.remove(); const indicator = document.createElement('div'); indicator.className = 'message ai'; indicator.id = 'typingIndicator'; indicator.innerHTML = `<div class="message-bubble"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>`; inner.appendChild(indicator); inner.scrollIntoView({ behavior: 'smooth', block: 'end' }); }
-        function removeTypingIndicator() { const indicator = document.getElementById('typingIndicator'); if (indicator) indicator.remove(); }
-        function newChat() { const newId = Date.now(); chats.unshift({ id: newId, name: 'Yangi suhbat', messages: [] }); currentChatId = newId; loadChat(newId); renderChatHistory(); saveChatsToLocal(); document.getElementById('userInput').focus(); }
-        function sendSuggestion(text) { document.getElementById('userInput').value = text; sendMessage(); }
-        function saveChatsToLocal() { localStorage.setItem('jalolmirzo_chats', JSON.stringify(chats)); localStorage.setItem('jalolmirzo_current_chat', currentChatId); }
-        function loadChatsFromLocal() { const saved = localStorage.getItem('jalolmirzo_chats'); if (saved) { chats = JSON.parse(saved); currentChatId = parseInt(localStorage.getItem('jalolmirzo_current_chat')) || chats[0]?.id || Date.now(); if (!chats.find(c => c.id === currentChatId)) currentChatId = chats[0]?.id || Date.now(); loadChat(currentChatId); } else newChat(); renderChatHistory(); }
-        async function sendMessage() { if (isLoading) return; if (!checkDailyLimit()) { addMessage("⚠️ Bugungi so'rov limiti tugadi. Ertaga qayta urinib ko'ring.", 'assistant'); return; } const input = document.getElementById('userInput'); const message = input.value.trim(); if (!message) return; addMessage(message, 'user'); input.value = ''; autoResizeTextarea(); isLoading = true; const sendBtn = document.getElementById('sendBtn'); const statusText = document.getElementById('statusText'); sendBtn.disabled = true; statusText.innerHTML = 'Javob yozilmoqda...'; addTypingIndicator(); const answer = await getAIResponse(message); removeTypingIndicator(); if (!answer.startsWith('❌')) incrementRequestCount(); addMessage(answer, 'assistant'); isLoading = false; sendBtn.disabled = false; statusText.innerHTML = 'Online · Ultra Fast'; }
-        function autoResizeTextarea() { const ta = document.getElementById('userInput'); ta.style.height = 'auto'; ta.style.height = Math.min(ta.scrollHeight, 120) + 'px'; }
-        function handleKeyDown(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } }
-        
-        // INIT
-        document.getElementById('userInput').addEventListener('input', autoResizeTextarea);
-        document.getElementById('userInput').focus();
-        loadChatsFromLocal();
-        setMode(currentMode);
-        document.getElementById('logo').addEventListener('click', checkAdmin);
-        
-        if (!localStorage.getItem('jalolmirzo_onboarding_seen')) {
-            setTimeout(() => { showOnboarding(); localStorage.setItem('jalolmirzo_onboarding_seen', 'true'); }, 1000);
-        }
-        
-        setTimeout(() => { const splash = document.getElementById('splashScreen'); if (splash) { splash.style.opacity = '0'; setTimeout(() => splash.remove(), 1000); } }, 2000);
-    </script>
-</body>
-</html>
+                method: 'POST', headers: { 'Content-Type':
