@@ -125,15 +125,13 @@
     </div>
 
     <script>
-        // ============ API KALITLAR (XAVFSIZLIK UCHUN O'CHIRILDI) ============
-        // Kalitlarni o'zingizning xavfsiz platformangizda (Vercel/Netlify env) saqlang
-        // Hozircha bo'sh, keyin o'z kalitlaringizni qo'shing
-        
+        // ============ API KALITLAR (GitHub'da ko'rinadi) ============
         const NORMAL_KEYS = [
             "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",
             "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",
             "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",
             "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"
+            
         ];
         
         const PRO_KEYS = [
@@ -289,13 +287,11 @@
             
             if (currentMode === 'normal') {
                 for (let key of NORMAL_KEYS) {
-                    if (key === "YOUR_GROQ_KEY_1" || !key) continue;
                     try { const res = await callGroq(key, message); if (res.status === 200) { const data = await res.json(); const ans = data.choices[0]?.message?.content || 'Javob topilmadi'; saveToCache(message, ans); return ans; } } catch(e) { continue; }
                 }
-                return "❌ Hozircha AI to'xtatilgan 2026-yil 1-aprel kuni ishga tushuriladi.";
+                return "❌ API kalitlari vaqtincha ishlamayapti. Keyinroq qayta urinib ko'ring.";
             } else {
                 for (let api of PRO_KEYS) {
-                    if (api.key === "YOUR_CEREBRAS_KEY_1" || api.key === "YOUR_GROQ_KEY_1") continue;
                     try {
                         let res; if (api.type === 'cerebras') res = await callCerebras(api.key, message);
                         else if (api.type === 'openrouter') res = await callOpenRouter(api.key, message);
@@ -315,7 +311,7 @@
                         }
                     } catch(e) { continue; }
                 }
-                return "❌ Hozircha AI to'xtatilgan 2026-yil 1-aprel kuni ishga tushuriladi.";
+                return "❌ Barcha API kalitlari vaqtincha ishlamayapti. Keyinroq qayta urinib ko'ring.";
             }
         }
         
