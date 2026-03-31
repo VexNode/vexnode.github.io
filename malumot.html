@@ -4,46 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ma'lumot | 41-Maktab</title>
-  <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="images/logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    .info-section { padding: 60px 0; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); min-height: 80vh; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #ffffff; color: #1e293b; transition: background 0.3s, color 0.3s; }
+    body.dark { background: #0f172a; color: #f1f5f9; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    /* Header */
+    .header { background: white; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 100; transition: background 0.3s; }
+    body.dark .header { background: #1e293b; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+    .header-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; flex-wrap: wrap; gap: 15px; }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo img { width: 50px; height: 50px; border-radius: 12px; object-fit: cover; }
+    .brand h1 { font-size: 20px; font-weight: 700; background: linear-gradient(135deg, #2563eb, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .brand p { font-size: 12px; color: #64748b; }
+    body.dark .brand p { color: #94a3b8; }
+    
+    /* Navigation */
+    .nav ul { display: flex; list-style: none; gap: 25px; flex-wrap: wrap; }
+    .nav a { text-decoration: none; color: #475569; font-weight: 500; transition: color 0.3s; }
+    .nav a:hover, .nav a.active { color: #2563eb; }
+    body.dark .nav a { color: #cbd5e1; }
+    body.dark .nav a:hover, body.dark .nav a.active { color: #60a5fa; }
+    
+    /* Tools */
+    .nav-tools { display: flex; gap: 12px; align-items: center; }
+    .search-box { padding: 8px 16px; border: 1px solid #e2e8f0; border-radius: 40px; outline: none; font-size: 14px; background: white; }
+    body.dark .search-box { background: #334155; border-color: #475569; color: white; }
+    .dark-btn { background: #f1f5f9; border: none; padding: 8px 12px; border-radius: 40px; cursor: pointer; font-size: 16px; transition: 0.3s; }
+    body.dark .dark-btn { background: #334155; }
+    
+    /* Page Title */
+    .page-title { background: linear-gradient(135deg, #06b6d4, #3b82f6, #8b5cf6); padding: 60px 0; text-align: center; color: white; position: relative; overflow: hidden; }
+    .page-title h1 { font-size: 42px; margin-bottom: 10px; }
+    .page-title p { font-size: 18px; opacity: 0.9; }
+    .floating-element { position: absolute; bottom: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%; }
+    
+    /* Info Section */
+    .info-section { padding: 60px 0; background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); min-height: 80vh; transition: background 0.3s; }
+    body.dark .info-section { background: linear-gradient(135deg, #0f172a, #1e293b); }
     .search-container { max-width: 600px; margin: 0 auto 40px; display: flex; gap: 15px; }
-    .search-container input { flex: 1; padding: 16px 24px; border: 2px solid #e2e8f0; border-radius: 50px; font-size: 16px; background: white; transition: all 0.3s ease; }
+    .search-container input { flex: 1; padding: 16px 24px; border: 2px solid #e2e8f0; border-radius: 50px; font-size: 16px; background: white; transition: all 0.3s ease; font-family: inherit; }
     .search-container input:focus { outline: none; border-color: #2563eb; box-shadow: 0 0 0 4px rgba(37,99,235,0.1); }
-    .search-container button { background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; border: none; padding: 0 32px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; }
+    body.dark .search-container input { background: #1e293b; border-color: #334155; color: #f1f5f9; }
+    .search-container button { background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; border: none; padding: 0 32px; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; font-family: inherit; }
     .search-container button:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(37,99,235,0.4); }
+    
+    /* Wiki Result */
     .wiki-result { background: white; border-radius: 24px; padding: 30px; margin-top: 20px; box-shadow: 0 10px 25px -8px rgba(0,0,0,0.1); animation: fadeIn 0.3s ease; }
+    body.dark .wiki-result { background: #1e293b; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     .wiki-header { display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
-    .wiki-image { width: 120px; height: 120px; background: linear-gradient(135deg, #e2e8f0, #cbd5e1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 48px; overflow: hidden; flex-shrink: 0; }
+    .wiki-image { width: 100px; height: 100px; background: linear-gradient(135deg, #e2e8f0, #cbd5e1); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 48px; overflow: hidden; flex-shrink: 0; }
+    body.dark .wiki-image { background: #334155; }
     .wiki-image img { width: 100%; height: 100%; object-fit: cover; }
-    .wiki-title { font-size: 26px; font-weight: 800; background: linear-gradient(135deg, #2563eb, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 10px; }
-    .wiki-summary { color: #1e293b; line-height: 1.8; margin-bottom: 20px; }
-    .wiki-link { display: inline-block; background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+    .wiki-title { font-size: 28px; font-weight: 800; background: linear-gradient(135deg, #2563eb, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+    .wiki-subtitle { font-size: 14px; color: #64748b; margin-bottom: 16px; border-left: 3px solid #2563eb; padding-left: 12px; }
+    body.dark .wiki-subtitle { color: #94a3b8; }
+    .wiki-summary { color: #1e293b; line-height: 1.8; margin-bottom: 20px; font-size: 15px; }
+    body.dark .wiki-summary { color: #cbd5e1; }
+    .wiki-meta { display: flex; gap: 20px; margin-top: 16px; padding-top: 16px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #64748b; flex-wrap: wrap; }
+    body.dark .wiki-meta { border-top-color: #334155; color: #94a3b8; }
+    .wiki-link { display: inline-block; background: linear-gradient(135deg, #2563eb, #7c3aed); color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; margin-top: 8px; }
     .wiki-link:hover { transform: translateY(-2px); }
+    
+    /* Loading & Error */
     .loading { text-align: center; padding: 60px; }
     .loading-spinner { width: 50px; height: 50px; border: 4px solid #e2e8f0; border-top-color: #2563eb; border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
     @keyframes spin { to { transform: rotate(360deg); } }
     .error-state { text-align: center; padding: 60px; background: white; border-radius: 24px; }
-    .error-icon { font-size: 64px; margin-bottom: 20px; }
-    .suggestions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-    .suggestion-btn { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 8px 20px; border-radius: 30px; cursor: pointer; transition: all 0.3s ease; font-size: 14px; }
-    .suggestion-btn:hover { background: #2563eb; color: white; border-color: #2563eb; }
-    body.dark .info-section { background: linear-gradient(135deg, #0f172a, #1e293b); }
-    body.dark .search-container input { background: #1e293b; border-color: #334155; color: #f1f5f9; }
-    body.dark .wiki-result { background: #1e293b; }
-    body.dark .wiki-summary { color: #cbd5e1; }
     body.dark .error-state { background: #1e293b; }
+    .error-icon { font-size: 64px; margin-bottom: 20px; }
+    
+    /* Suggestions */
+    .suggestions { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .suggestion-btn { background: #f1f5f9; border: 1px solid #e2e8f0; padding: 8px 20px; border-radius: 30px; cursor: pointer; transition: all 0.3s ease; font-size: 14px; font-family: inherit; }
     body.dark .suggestion-btn { background: #2d3a4f; border-color: #334155; color: #f1f5f9; }
-    @media (max-width: 768px) { .search-container { flex-direction: column; } .search-container button { padding: 14px; } .wiki-header { flex-direction: column; align-items: center; text-align: center; } }
+    .suggestion-btn:hover { background: #2563eb; color: white; border-color: #2563eb; }
+    
+    /* Footer */
+    .footer { background: #0f172a; color: #94a3b8; padding: 40px 0; text-align: center; margin-top: 40px; }
+    .footer-inner p { margin: 5px 0; }
+    body.dark .footer { background: #020617; }
+    
+    @media (max-width: 768px) {
+      .header-inner { flex-direction: column; text-align: center; }
+      .nav ul { justify-content: center; gap: 15px; }
+      .nav-tools { justify-content: center; }
+      .search-container { flex-direction: column; }
+      .search-container button { padding: 14px; }
+      .wiki-header { flex-direction: column; align-items: center; text-align: center; }
+      .wiki-title { font-size: 24px; }
+      .page-title h1 { font-size: 28px; }
+    }
   </style>
 </head>
 <body>
   <header class="header">
     <div class="container header-inner">
-      <div class="logo"><img src="images/logo.png" alt="41-maktab logotipi" width="50" height="50"><div class="brand"><h1>41-Maktab</h1><p>Bilim – kelajak kaliti</p></div></div>
+      <div class="logo">
+        <img src="images/logo.png" alt="41-maktab logotipi" width="50" height="50" onerror="this.src='https://placehold.co/50x50/2563eb/white?text=41'">
+        <div class="brand">
+          <h1>41-Maktab</h1>
+          <p>Bilim – kelajak kaliti</p>
+        </div>
+      </div>
       <nav class="nav">
         <ul>
           <li><a href="index.html">Asosiy</a></li>
@@ -56,15 +123,26 @@
           <li><a href="aloqa.html">Aloqa</a></li>
         </ul>
       </nav>
-      <div class="nav-tools"><input type="text" id="search-input" placeholder="Qidiruv..." class="search-box"><button id="dark-mode-toggle" class="dark-btn">🌙</button></div>
+      <div class="nav-tools">
+        <input type="text" id="search-input" placeholder="Qidiruv..." class="search-box">
+        <button id="dark-mode-toggle" class="dark-btn">🌙</button>
+      </div>
     </div>
   </header>
+  
   <main>
-    <section class="page-title info-title"><div class="container"><h1>🔍 Ma'lumot olish</h1><p>Vikipediya orqali istalgan mavzu bo'yicha ma'lumot toping</p></div><div class="floating-element"></div></section>
+    <section class="page-title">
+      <div class="container">
+        <h1>🔍 Ma'lumot olish</h1>
+        <p>Vikipediya orqali istalgan mavzu bo'yicha to'liq ma'lumot toping</p>
+      </div>
+      <div class="floating-element"></div>
+    </section>
+    
     <section class="info-section">
       <div class="container">
         <div class="search-container">
-          <input type="text" id="wiki-search" placeholder="Ma'lumot qidirish (masalan: Alisher Navoiy, Amir Temur)...">
+          <input type="text" id="wiki-search" placeholder="Ma'lumot qidirish (masalan: Alisher Navoiy, Amir Temir)...">
           <button onclick="searchWikipedia()">🔍 Qidirish</button>
         </div>
         <div id="wiki-result"></div>
@@ -83,59 +161,275 @@
       </div>
     </section>
   </main>
-  <footer class="footer"><div class="container footer-inner"><p>© 2025 41-Maktab. Barcha huquqlar himoyalangan.</p><address><p>👨‍💼 Direktor: Ziyayeva Ozodaxon</p><p>👨‍💻 Admin: Latifjonov Jalolmirzo</p></address></div></footer>
-  <script src="js/main.js"></script>
+  
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2025 41-Maktab. Barcha huquqlar himoyalangan.</p>
+      <address style="font-style: normal;">
+        <p>👨‍💼 Direktor: Ziyayeva Ozodaxon</p>
+        <p>👨‍💻 Admin: Latifjonov Jalolmirzo</p>
+      </address>
+    </div>
+  </footer>
+  
   <script>
+    // Dark mode
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+    if (localStorage.getItem('darkMode') === 'enabled') {
+      body.classList.add('dark');
+      darkModeToggle.textContent = '☀️';
+    }
+    darkModeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark');
+      if (body.classList.contains('dark')) {
+        localStorage.setItem('darkMode', 'enabled');
+        darkModeToggle.textContent = '☀️';
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+        darkModeToggle.textContent = '🌙';
+      }
+    });
+    
+    // Header search
+    document.getElementById('search-input')?.addEventListener('keypress', e => {
+      if (e.key === 'Enter') {
+        const query = e.target.value.trim();
+        if (query) window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+      }
+    });
+    
+    // ============ TO'G'RI MATN TOZALASH FUNKSIYASI ============
+    function cleanWikiText(htmlText) {
+      // Vaqtinchalik element yaratib, matnni olish
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = htmlText;
+      
+      // Barcha keraksiz elementlarni olib tashlash
+      const removeSelectors = [
+        'script', 'style', 'sup', 'table', '.navbox', '.infobox', 
+        '.metadata', '.mw-editsection', '.hatnote', '.ambox',
+        'link', 'figure', 'figcaption', '.thumb', '.toc',
+        '.reflist', '.references', '.mw-references-wrap'
+      ];
+      removeSelectors.forEach(selector => {
+        const elements = tempDiv.querySelectorAll(selector);
+        elements.forEach(el => el.remove());
+      });
+      
+      // Matnni olish
+      let text = tempDiv.textContent || tempDiv.innerText || '';
+      
+      // Tozalash
+      text = text
+        .replace(/\s+/g, ' ')                    // ortiqcha bo'shliqlarni bittaga aylantirish
+        .replace(/\[\d+\]/g, '')                 // [1], [2] referanslar
+        .replace(/\[\w+\]/g, '')                 // [en], [uz] tillar
+        .replace(/\([^)]*\)/g, (match) => {      // keraksiz qavs ichidagilar
+          if (match.length < 30 && (match.includes('ingliz') || match.includes('rus') || match.match(/^\d/))) {
+            return '';
+          }
+          return match;
+        })
+        .replace(/qaraldi:?\s*\d{4}[^\s]*/gi, '')
+        .replace(/arxivlandi:?\s*[^\s]*/gi, '')
+        .replace(/asl nusxadan:?\s*[^\s]*/gi, '')
+        .replace(/ISBN\s*[\d-]+/gi, '')
+        .trim();
+      
+      // Jumlalarga ajratish va filtrlash
+      let sentences = text.split(/[.!?]\s+/);
+      let filtered = [];
+      
+      for (let sentence of sentences) {
+        sentence = sentence.trim();
+        // Keraksiz jumlalarni filtrlash
+        if (sentence.length < 20) continue;
+        if (sentence.startsWith('http')) continue;
+        if (sentence.match(/^\d{4}-\d{2}-\d{2}/)) continue;
+        if (sentence.includes('mw-parser-output')) continue;
+        if (sentence.match(/^[A-Z]{3,}:/)) continue;
+        if (sentence.includes('Qaraldi') && sentence.length < 50) continue;
+        if (sentence.includes('Arxivlandi')) continue;
+        if (sentence.includes('Asl nusxadan')) continue;
+        
+        filtered.push(sentence);
+      }
+      
+      // Birinchi 20-25 jumlani olish
+      let result = filtered.slice(0, 22).join('. ') + '.';
+      
+      // Uzunlikni cheklash
+      if (result.length > 4000) {
+        result = result.substring(0, 4000) + '...';
+      }
+      
+      return result;
+    }
+    
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+    
     async function searchWikipedia() {
       const query = document.getElementById('wiki-search').value.trim();
       if (!query) return;
       const container = document.getElementById('wiki-result');
-      container.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>🔍 Vikipediya\'dan qidirilmoqda...</p></div>';
+      container.innerHTML = '<div class="loading"><div class="loading-spinner"></div><p>🔍 Vikipediya\'dan ma\'lumot olinmoqda...</p></div>';
+      
       try {
         let result = await searchUzbekWikipedia(query);
         if (!result) result = await searchEnglishWikipedia(query);
-        if (result) { displayWikiResult(result); }
-        else {
-          container.innerHTML = `<div class="error-state"><div class="error-icon">❓</div><h3>Ma'lumot topilmadi</h3><p>"${query}" bo'yicha Vikipediya'da ma'lumot topilmadi.</p></div>`;
+        
+        if (result) { 
+          displayWikiResult(result); 
+        } else {
+          container.innerHTML = `<div class="error-state"><div class="error-icon">❓</div><h3>Ma'lumot topilmadi</h3><p>"${escapeHtml(query)}" bo'yicha Vikipediya'da ma'lumot topilmadi.</p><div class="suggestions" style="margin-top:20px;"><span class="suggestion-btn" onclick="quickSearch('Alisher Navoiy')">Alisher Navoiy</span><span class="suggestion-btn" onclick="quickSearch('Amir Temur')">Amir Temur</span><span class="suggestion-btn" onclick="quickSearch('O\'zbekiston')">O'zbekiston</span></div></div>`;
         }
       } catch (error) {
+        console.error(error);
         container.innerHTML = `<div class="error-state"><div class="error-icon">⚠️</div><h3>Xatolik yuz berdi</h3><p>Internet aloqasini tekshiring.</p></div>`;
       }
     }
+    
     async function searchUzbekWikipedia(query) {
       try {
-        const url = `https://uz.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(query)}`;
-        const res = await fetch(url);
-        if (res.ok) {
-          const data = await res.json();
-          if (data.title && !data.title.includes("Not found")) {
-            return { title: data.title, description: data.description || "Oʻzbekcha Vikipediya", extract: data.extract || "Ma'lumot mavjud emas", thumbnail: data.thumbnail?.source || null, url: data.content_urls?.desktop?.page || `https://uz.wikipedia.org/wiki/${encodeURIComponent(query)}`, lang: "uz" };
+        // Parse API orqali to'liq ma'lumot olish
+        const parseUrl = `https://uz.wikipedia.org/w/api.php?action=parse&page=${encodeURIComponent(query)}&format=json&origin=*&prop=text`;
+        const parseRes = await fetch(parseUrl);
+        
+        if (parseRes.ok) {
+          const parseData = await parseRes.json();
+          if (parseData.parse && parseData.parse.text) {
+            let htmlText = parseData.parse.text['*'];
+            let cleanText = cleanWikiText(htmlText);
+            
+            // Rasm olish
+            let thumbnail = null;
+            const imgUrl = `https://uz.wikipedia.org/w/api.php?action=query&titles=${encodeURIComponent(query)}&prop=pageimages&format=json&origin=*&pithumbsize=200`;
+            const imgRes = await fetch(imgUrl);
+            if (imgRes.ok) {
+              const imgData = await imgRes.json();
+              const pages = imgData.query.pages;
+              for (let pageId in pages) {
+                if (pages[pageId].thumbnail) {
+                  thumbnail = pages[pageId].thumbnail.source;
+                  break;
+                }
+              }
+            }
+            
+            if (cleanText && cleanText.length > 50) {
+              return {
+                title: query.charAt(0).toUpperCase() + query.slice(1),
+                extract: cleanText,
+                thumbnail: thumbnail,
+                url: `https://uz.wikipedia.org/wiki/${encodeURIComponent(query)}`,
+                lang: "uz"
+              };
+            }
           }
         }
-      } catch(e) {}
+        
+        // Summary API (fallback)
+        const summaryUrl = `https://uz.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(query)}`;
+        const summaryRes = await fetch(summaryUrl);
+        if (summaryRes.ok) {
+          const data = await summaryRes.json();
+          if (data.title && !data.title.includes("Not found") && data.extract) {
+            return {
+              title: data.title,
+              extract: data.extract,
+              thumbnail: data.thumbnail?.source || null,
+              url: data.content_urls?.desktop?.page || `https://uz.wikipedia.org/wiki/${encodeURIComponent(query)}`,
+              lang: "uz"
+            };
+          }
+        }
+      } catch(e) { console.log("Uzbek search xatosi:", e); }
       return null;
     }
+    
     async function searchEnglishWikipedia(query) {
       try {
         const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(query)}`;
         const res = await fetch(url);
         if (res.ok) {
           const data = await res.json();
-          if (data.title && !data.title.includes("Not found")) {
-            return { title: data.title, description: data.description || "English Wikipedia", extract: data.extract || "Information not available", thumbnail: data.thumbnail?.source || null, url: data.content_urls?.desktop?.page || `https://en.wikipedia.org/wiki/${encodeURIComponent(query)}`, lang: "en" };
+          if (data.title && !data.title.includes("Not found") && data.extract) {
+            return { 
+              title: data.title, 
+              extract: data.extract, 
+              thumbnail: data.thumbnail?.source || null, 
+              url: data.content_urls?.desktop?.page || `https://en.wikipedia.org/wiki/${encodeURIComponent(query)}`, 
+              lang: "en" 
+            };
           }
         }
       } catch(e) {}
       return null;
     }
+    
     function displayWikiResult(result) {
       const container = document.getElementById('wiki-result');
-      const langName = result.lang === 'uz' ? 'Oʻzbekcha' : 'English';
-      container.innerHTML = `<div class="wiki-result"><div class="wiki-header"><div class="wiki-image">${result.thumbnail ? `<img src="${result.thumbnail}" alt="${result.title}">` : (result.lang === 'uz' ? '📚' : '📖')}</div><div><div class="wiki-title">${result.title}</div><div style="color:#64748b;margin-bottom:10px;">${langName} Vikipediya</div><div style="font-size:14px;color:#2563eb;">${result.description || ''}</div></div></div><div class="wiki-summary">${result.extract.length > 600 ? result.extract.substring(0,600)+'...' : result.extract}</div><a href="${result.url}" target="_blank" class="wiki-link">🔗 Toʻliq oʻqish (${result.lang.toUpperCase()})</a></div>`;
+      const langName = result.lang === 'uz' ? 'Oʻzbekcha Vikipediya' : 'English Wikipedia';
+      const langFlag = result.lang === 'uz' ? '🇺🇿' : '🇬🇧';
+      
+      // Matnni chiroyli formatlash - paragraflarga ajratish
+      let formattedExtract = result.extract;
+      
+      // Paragraflarga ajratish
+      let paragraphs = formattedExtract.split(/[.!?]\s+/);
+      let formattedParagraphs = [];
+      
+      for (let i = 0; i < paragraphs.length && i < 25; i++) {
+        let p = paragraphs[i].trim();
+        if (p.length > 15) {
+          formattedParagraphs.push(p + '.');
+        }
+      }
+      
+      formattedExtract = formattedParagraphs.join('<br><br>');
+      
+      container.innerHTML = `
+        <div class="wiki-result">
+          <div class="wiki-header">
+            <div class="wiki-image">
+              ${result.thumbnail ? `<img src="${result.thumbnail}" alt="${escapeHtml(result.title)}">` : (result.lang === 'uz' ? '📚' : '📖')}
+            </div>
+            <div style="flex:1;">
+              <div class="wiki-title">${escapeHtml(result.title)}</div>
+              <div class="wiki-subtitle">${langFlag} ${langName}</div>
+            </div>
+          </div>
+          <div class="wiki-summary">
+            ${formattedExtract}
+          </div>
+          <div class="wiki-meta">
+            <span>📄 ${result.extract.length} belgi</span>
+            <span>🔗 Manba: Vikipediya</span>
+            <span>🌐 ${result.lang === 'uz' ? 'Oʻzbek tilida' : 'Ingliz tilida'}</span>
+          </div>
+          <a href="${result.url}" target="_blank" class="wiki-link">🔗 Toʻliq oʻqish (${result.lang.toUpperCase()})</a>
+        </div>
+      `;
     }
-    function quickSearch(query) { document.getElementById('wiki-search').value = query; searchWikipedia(); }
-    document.getElementById('wiki-search')?.addEventListener('keypress', e => { if (e.key === 'Enter') searchWikipedia(); });
-    document.addEventListener('DOMContentLoaded', () => { quickSearch('Alisher Navoiy'); });
+    
+    function quickSearch(query) { 
+      document.getElementById('wiki-search').value = query; 
+      searchWikipedia(); 
+    }
+    
+    document.getElementById('wiki-search')?.addEventListener('keypress', e => { 
+      if (e.key === 'Enter') searchWikipedia(); 
+    });
+    
+    // Avtomatik qidiruv
+    document.addEventListener('DOMContentLoaded', () => { 
+      quickSearch('Alisher Navoiy'); 
+    });
   </script>
 </body>
 </html>
